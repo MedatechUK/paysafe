@@ -1,2 +1,2 @@
-# paysafe
- paysafe integration
+# PaySafe
+ PaySafe Integration
