@@ -1,4 +1,5 @@
-﻿Public Class bacsBankAccount
+﻿Public Class sepaBankAccount : Implements IDisposable
+
 
     Private _id As String
     ''' <summary> 
@@ -16,7 +17,7 @@
 
     Private _nickName As String
     ''' <summary> 
-    '''This is an alias defined by the customer for the bank account (e.g., "Sally's Barclays Account").
+    '''This is an alias defined by the customer for the bank account (e.g., "ABN Account").
     ''' </summary> 
     ''' <returns></returns> 
     Public Property nickName As String
@@ -63,7 +64,7 @@
 
     Private _statusReason As String
     ''' <summary> 
-    ''' If the status is INVALID, this is a description of why the account is invalid (e.g., account closed).
+    '''If the status is INVALID, this is a description of why the account is invalid (e.g., account closed).
     ''' </summary> 
     ''' <returns></returns> 
     Public Property statusReason As String
@@ -75,17 +76,31 @@
         End Set
     End Property
 
-    Private _accountNumber As String
+    Private _iban As String
     ''' <summary> 
-    ''' This is the bank account number.
+    '''This is the international bank account number.
     ''' </summary> 
     ''' <returns></returns> 
-    Public Property accountNumber As String
+    Public Property iban As String
         Get
-            Return _accountNumber
+            Return _iban
         End Get
         Set(value As String)
-            _accountNumber = value
+            _iban = value
+        End Set
+    End Property
+
+    Private _bic As String
+    ''' <summary> 
+    '''This is the bank identification code.
+    ''' </summary> 
+    ''' <returns></returns> 
+    Public Property bic As String
+        Get
+            Return _bic
+        End Get
+        Set(value As String)
+            _bic = value
         End Set
     End Property
 
@@ -100,20 +115,6 @@
         End Get
         Set(value As String)
             _accountHolderName = value
-        End Set
-    End Property
-
-    Private _sortCode As String
-    ''' <summary> 
-    '''This is the 6-digit sort code that identifies the financial institution and branch of the customer’s bank.
-    ''' </summary> 
-    ''' <returns></returns> 
-    Public Property sortCode As String
-        Get
-            Return _sortCode
-        End Get
-        Set(value As String)
-            _sortCode = value
         End Set
     End Property
 
@@ -160,18 +161,50 @@
         End Set
     End Property
 
-    Private _mandates As String
+    Private _mandates As New List(Of mandates)
     ''' <summary> 
     '''This is one or more mandates associated with the bank account.
     ''' </summary> 
     ''' <returns></returns> 
-    Public Property mandates As String
+    Public Property mandates As List(Of mandates)
         Get
             Return _mandates
         End Get
-        Set(value As String)
+        Set(value As List(Of mandates))
             _mandates = value
         End Set
     End Property
+
+#Region "IDisposable Support"
+    Private disposedValue As Boolean ' To detect redundant calls
+
+    ' IDisposable
+    Protected Overridable Sub Dispose(disposing As Boolean)
+        If Not disposedValue Then
+            If disposing Then
+                ' TODO: dispose managed state (managed objects).
+            End If
+
+            ' TODO: free unmanaged resources (unmanaged objects) and override Finalize() below.
+            ' TODO: set large fields to null.
+        End If
+        disposedValue = True
+    End Sub
+
+    ' TODO: override Finalize() only if Dispose(disposing As Boolean) above has code to free unmanaged resources.
+    'Protected Overrides Sub Finalize()
+    '    ' Do not change this code.  Put cleanup code in Dispose(disposing As Boolean) above.
+    '    Dispose(False)
+    '    MyBase.Finalize()
+    'End Sub
+
+    ' This code added by Visual Basic to correctly implement the disposable pattern.
+    Public Sub Dispose() Implements IDisposable.Dispose
+        ' Do not change this code.  Put cleanup code in Dispose(disposing As Boolean) above.
+        Dispose(True)
+        ' TODO: uncomment the following line if Finalize() is overridden above.
+        ' GC.SuppressFinalize(Me)
+    End Sub
+#End Region
 
 End Class

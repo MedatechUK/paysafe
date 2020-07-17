@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4D0246E0-52E4-49EC-BA75-84CA60998C3E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>paysafe.Module1</StartupObject>
-    <RootNamespace>paysafe</RootNamespace>
+    <StartupObject>MedatechUK.Module1</StartupObject>
+    <RootNamespace>MedatechUK</RootNamespace>
     <AssemblyName>paysafe</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Console</MyType>
@@ -48,6 +48,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -69,28 +72,39 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JSON Objects\achBankAccount.vb" />
-    <Compile Include="JSON Objects\addresses.vb" />
-    <Compile Include="ISO Std\Country.vb" />
-    <Compile Include="JSON Objects\applePayPaymentToken.vb" />
-    <Compile Include="JSON Objects\applepaysingleusetoken.vb" />
-    <Compile Include="JSON Objects\bacsBankAccount.vb" />
-    <Compile Include="JSON Objects\billingAddress.vb" />
-    <Compile Include="JSON Objects\cardExpiry.vb" />
-    <Compile Include="JSON Objects\cards.vb" />
-    <Compile Include="JSON Objects\dateOfBirth.vb" />
-    <Compile Include="JSON Objects\eftBankAccount.vb" />
-    <Compile Include="JSON Objects\error.vb" />
-    <Compile Include="JSON Objects\googlePayPaymentToken.vb" />
-    <Compile Include="JSON Objects\googlepaysingleusetoken.vb" />
-    <Compile Include="JSON Objects\header.vb" />
-    <Compile Include="JSON Objects\mandates.vb" />
-    <Compile Include="JSON Objects\profiles.vb" />
-    <Compile Include="JSON Objects\recipient.vb" />
-    <Compile Include="JSON Objects\sepaBankAccount.vb" />
-    <Compile Include="JSON Objects\singleusetoken.vb" />
-    <Compile Include="JSON Objects\transaction.vb" />
+    <Compile Include="base\Verbs\createRequest.vb" />
+    <Compile Include="base\Verbs\deleteRequest.vb" />
+    <Compile Include="base\Verbs\getRequest.vb" />
+    <Compile Include="base\Verbs\updateRequest.vb" />
+    <Compile Include="def\JSON Objects\achBankAccount.vb" />
+    <Compile Include="def\JSON Objects\address.vb" />
+    <Compile Include="def\ISO Std\Country.vb" />
+    <Compile Include="def\JSON Objects\applePayPaymentToken.vb" />
+    <Compile Include="def\JSON Objects\applepaysingleusetoken.vb" />
+    <Compile Include="def\JSON Objects\bacsBankAccount.vb" />
+    <Compile Include="def\JSON Objects\billingAddress.vb" />
+    <Compile Include="def\JSON Objects\cardExpiry.vb" />
+    <Compile Include="def\JSON Objects\cards.vb" />
+    <Compile Include="def\JSON Objects\dateOfBirth.vb" />
+    <Compile Include="def\JSON Objects\eftBankAccount.vb" />
+    <Compile Include="def\JSON Objects\error.vb" />
+    <Compile Include="def\JSON Objects\googlePayPaymentToken.vb" />
+    <Compile Include="def\JSON Objects\googlepaysingleusetoken.vb" />
+    <Compile Include="def\JSON Objects\header.vb" />
+    <Compile Include="def\JSON Objects\mandates.vb" />
+    <Compile Include="def\JSON Objects\profiles.vb" />
+    <Compile Include="def\JSON Objects\recipient.vb" />
+    <Compile Include="def\JSON Objects\sepaBankAccount.vb" />
+    <Compile Include="def\JSON Objects\singleusetoken.vb" />
+    <Compile Include="def\JSON Objects\transaction.vb" />
+    <Compile Include="def\paysafe\gender.vb" />
+    <Compile Include="def\paysafe\locale.vb" />
     <Compile Include="Module1.vb" />
+    <Compile Include="Request\Addresses\CreateAddress.vb" />
+    <Compile Include="Request\Addresses\DeleteAddresses.vb" />
+    <Compile Include="Request\Addresses\GetAddresses.vb" />
+    <Compile Include="Request\Addresses\UpdateAddresses.vb" />
+    <Compile Include="Request\Monitor.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -106,9 +120,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ISO Std\Province.vb" />
-    <Compile Include="ISO Std\Currency.vb" />
-    <Compile Include="ISO Std\States.vb" />
+    <Compile Include="def\ISO Std\Province.vb" />
+    <Compile Include="def\ISO Std\Currency.vb" />
+    <Compile Include="def\ISO Std\States.vb" />
+    <Compile Include="base\RequestBase.vb" />
+    <Compile Include="Request\Profiles\DeleteProfile.vb" />
+    <Compile Include="Request\Profiles\UpdateProfile.vb" />
+    <Compile Include="Request\Profiles\GetByMerchID.vb" />
+    <Compile Include="Request\Profiles\GetProfile.vb" />
+    <Compile Include="Request\Profiles\CreateProfile.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -129,6 +149,8 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
