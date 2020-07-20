@@ -7,7 +7,7 @@ Namespace PaySafe.Request.Mandates
 
 #Region "ctor"
 
-        Sub New(e As Object, ParamArray Args() As String)
+        Sub New(Settings As PaySafe.Settings, e As Object, ParamArray Args() As String)
             MyBase.New(e, Args)
 
         End Sub

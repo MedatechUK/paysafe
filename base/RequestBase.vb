@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 Imports System.Text
+Imports MedatechUK.PaySafe
 Imports Newtonsoft
 
 Namespace PaySafe.Base
@@ -24,7 +25,7 @@ Namespace PaySafe.Base
             End Set
         End Property
 
-        Sub New(e As Object, ParamArray args() As String)
+        Sub New(Settings As PaySafe.Settings, e As Object, ParamArray args() As String)
             _Request = CType(HttpWebRequest.Create(String.Format("{0}{1}", Settings.baseUrl, String.Format(Me.uri, args))), Net.HttpWebRequest)
 
             With _Request
@@ -72,7 +73,7 @@ Namespace PaySafe.Base
 
         End Sub
 
-        Sub New(ParamArray args() As String)
+        Sub New(Settings As PaySafe.Settings, ParamArray args() As String)
 
             _Request = CType(HttpWebRequest.Create(String.Format("{0}{1}", Settings.baseUrl, String.Format(Me.uri, args))), Net.HttpWebRequest)
             With _Request

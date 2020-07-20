@@ -4,8 +4,8 @@ Namespace PaySafe.Base
 
     Public MustInherit Class getRequest : Inherits Request
 
-        Sub New(ParamArray Args() As String)
-            MyBase.New(Args)
+        Sub New(Settings As PaySafe.Settings, ParamArray Args() As String)
+            MyBase.New(Settings, Args)
 
         End Sub
 

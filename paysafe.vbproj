@@ -100,7 +100,6 @@
     <Compile Include="def\JSON Objects\transaction.vb" />
     <Compile Include="def\paysafe\gender.vb" />
     <Compile Include="def\paysafe\locale.vb" />
-    <Compile Include="Module1.vb" />
     <Compile Include="Request\ACHAccount\CreateACH.vb" />
     <Compile Include="Request\ACHAccount\DeleteACH.vb" />
     <Compile Include="Request\ACHAccount\GetACH.vb" />
