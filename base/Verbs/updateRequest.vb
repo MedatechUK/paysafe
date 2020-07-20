@@ -1,14 +1,18 @@
-﻿Public MustInherit Class updateRequest : Inherits Request
+﻿Namespace PaySafe.Base
 
-    Sub New(e As Object, ParamArray Args() As String)
-        MyBase.New(e, Args)
+    Public MustInherit Class updateRequest : Inherits Request
 
-    End Sub
+        Sub New(e As Object, ParamArray Args() As String)
+            MyBase.New(e, Args)
 
-    Public Overrides ReadOnly Property verb As String
-        Get
-            Return "PUT"
-        End Get
-    End Property
+        End Sub
 
-End Class
+        Public Overrides ReadOnly Property verb As String
+            Get
+                Return "PUT"
+            End Get
+        End Property
+
+    End Class
+
+End Namespace

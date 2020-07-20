@@ -5,12 +5,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4D0246E0-52E4-49EC-BA75-84CA60998C3E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <StartupObject>MedatechUK.Module1</StartupObject>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
     <RootNamespace>MedatechUK</RootNamespace>
     <AssemblyName>paysafe</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Console</MyType>
+    <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -100,10 +101,31 @@
     <Compile Include="def\paysafe\gender.vb" />
     <Compile Include="def\paysafe\locale.vb" />
     <Compile Include="Module1.vb" />
+    <Compile Include="Request\ACHAccount\CreateACH.vb" />
+    <Compile Include="Request\ACHAccount\DeleteACH.vb" />
+    <Compile Include="Request\ACHAccount\GetACH.vb" />
+    <Compile Include="Request\ACHAccount\UpdateACH.vb" />
     <Compile Include="Request\Addresses\CreateAddress.vb" />
     <Compile Include="Request\Addresses\DeleteAddresses.vb" />
     <Compile Include="Request\Addresses\GetAddresses.vb" />
     <Compile Include="Request\Addresses\UpdateAddresses.vb" />
+    <Compile Include="Request\BACSAccount\CreateBACS.vb" />
+    <Compile Include="Request\BACSAccount\DeleteBACS.vb" />
+    <Compile Include="Request\BACSAccount\GetBACS.vb" />
+    <Compile Include="Request\BACSAccount\UpdateBACS.vb" />
+    <Compile Include="Request\Cards\CreateCard.vb" />
+    <Compile Include="Request\Cards\DeleteCard.vb" />
+    <Compile Include="Request\Cards\GetCard.vb" />
+    <Compile Include="Request\Cards\UpdateCard.vb" />
+    <Compile Include="Request\EFTAccount\CreateEFT.vb" />
+    <Compile Include="Request\EFTAccount\DeleteEFT.vb" />
+    <Compile Include="Request\EFTAccount\GetEFT.vb" />
+    <Compile Include="Request\EFTAccount\UpdateEFT.vb" />
+    <Compile Include="Request\Mandates\CreateBACS.vb" />
+    <Compile Include="Request\Mandates\CreateSEPA.vb" />
+    <Compile Include="Request\Mandates\DeleteMandate.vb" />
+    <Compile Include="Request\Mandates\GetMandate.vb" />
+    <Compile Include="Request\Mandates\UpdateMandate.vb" />
     <Compile Include="Request\Monitor.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -124,11 +146,23 @@
     <Compile Include="def\ISO Std\Currency.vb" />
     <Compile Include="def\ISO Std\States.vb" />
     <Compile Include="base\RequestBase.vb" />
+    <Compile Include="Request\Profiles\CreateToken.vb" />
     <Compile Include="Request\Profiles\DeleteProfile.vb" />
     <Compile Include="Request\Profiles\UpdateProfile.vb" />
     <Compile Include="Request\Profiles\GetByMerchID.vb" />
     <Compile Include="Request\Profiles\GetProfile.vb" />
     <Compile Include="Request\Profiles\CreateProfile.vb" />
+    <Compile Include="Request\SEPAAccount\CreateSEPA.vb" />
+    <Compile Include="Request\SEPAAccount\DeleteSEPA.vb" />
+    <Compile Include="Request\SEPAAccount\GetSEPA.vb" />
+    <Compile Include="Request\SEPAAccount\UpdateSEPA.vb" />
+    <Compile Include="Request\DDToken\CreateEFT.vb" />
+    <Compile Include="Request\DDToken\CreateACH.vb" />
+    <Compile Include="Request\SingleUseToken\CreateCard.vb" />
+    <Compile Include="Request\SingleUseToken\CreateGooglePay.vb" />
+    <Compile Include="Request\SingleUseToken\CreateApplePay.vb" />
+    <Compile Include="Request\SingleUseToken\GetCardToken.vb" />
+    <Compile Include="Settings.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -150,6 +184,7 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="paysafe.nuspec" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

@@ -1,4 +1,5 @@
-﻿Public Class dateOfBirth : Implements IDisposable
+﻿Namespace PaySafe
+    Public Class dateOfBirth : Implements IDisposable
 
     Sub New()
 
@@ -87,3 +88,5 @@
 
 
 End Class
+
+End Namespace

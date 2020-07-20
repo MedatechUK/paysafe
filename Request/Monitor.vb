@@ -1,44 +1,42 @@
 ﻿Imports System.IO
 Imports System.Net
 
-Public Class Monitor : Inherits Request
+Namespace PaySafe.Request
+
+
+    Public Class Monitor : Inherits PaySafe.Base.getRequest
 
 #Region "ctor"
 
-    Sub New(ParamArray Args() As String)
-        MyBase.New(Args)
+        Sub New(ParamArray Args() As String)
+            MyBase.New(Args)
 
-    End Sub
+        End Sub
 
 #End Region
 
 #Region "Overrides Request Properties"
 
-    Public Overrides ReadOnly Property uri As String
-        Get
-            Return "monitor"
-        End Get
-    End Property
-
-    Public Overrides ReadOnly Property verb As String
-        Get
-            Return "GET"
-        End Get
-    End Property
+        Public Overrides ReadOnly Property uri As String
+            Get
+                Return "monitor"
+            End Get
+        End Property
 
 #End Region
 
 #Region "Overrides Request Methods"
 
-    Public Overrides Sub response(ByRef r As HttpWebResponse)
-        Using reader = New IO.StreamReader(r.GetResponseStream())
-            Console.Write(reader.ReadToEnd())
+        Public Overrides ReadOnly Property responseType As Type
+            Get
+                Throw New NotImplementedException()
+            End Get
 
-        End Using
-
-    End Sub
+        End Property
 
 #End Region
 
-End Class
+    End Class
+
+End Namespace
 

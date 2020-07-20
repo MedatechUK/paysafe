@@ -1,16 +1,20 @@
 ﻿Imports System.Net
 
-Public MustInherit Class getRequest : Inherits Request
+Namespace PaySafe.Base
 
-    Sub New(ParamArray Args() As String)
-        MyBase.New(Args)
+    Public MustInherit Class getRequest : Inherits Request
 
-    End Sub
+        Sub New(ParamArray Args() As String)
+            MyBase.New(Args)
 
-    Public Overrides ReadOnly Property verb As String
-        Get
-            Return "GET"
-        End Get
-    End Property
+        End Sub
 
-End Class
+        Public Overrides ReadOnly Property verb As String
+            Get
+                Return "GET"
+            End Get
+        End Property
+
+    End Class
+
+End Namespace

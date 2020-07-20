@@ -1,4 +1,5 @@
-﻿Public Class bacsBankAccount : Implements IDisposable
+﻿Namespace PaySafe
+    Public Class bacsBankAccount : Implements IDisposable
 
     Private _id As String
     ''' <summary> 
@@ -207,3 +208,5 @@
 #End Region
 
 End Class
+
+End Namespace

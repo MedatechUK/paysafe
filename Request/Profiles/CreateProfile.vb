@@ -1,9 +1,9 @@
 ﻿Imports System.IO
 Imports System.Net
 
-Namespace Profile
+Namespace PaySafe.Request.Profile
 
-    Public Class Create : Inherits createRequest
+    Public Class Create : Inherits PaySafe.Base.createRequest
 
 #Region "ctor"
 
@@ -26,13 +26,12 @@ Namespace Profile
 
 #Region "Overrides Response"
 
-        Public Overrides Sub response(ByRef r As HttpWebResponse)
-            Using reader = New IO.StreamReader(r.GetResponseStream())
-                Console.Write(reader.ReadToEnd())
+        Public Overrides ReadOnly Property responseType As Type
+            Get
+                Throw New NotImplementedException()
+            End Get
 
-            End Using
-
-        End Sub
+        End Property
 
 #End Region
 

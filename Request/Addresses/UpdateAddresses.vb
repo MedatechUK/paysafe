@@ -1,8 +1,8 @@
 ﻿Imports System.Net
 
-Namespace Addresses
+Namespace PaySafe.Request.Addresses
 
-    Public Class [Update] : Inherits updateRequest
+    Public Class [Update] : Inherits PaySafe.Base.updateRequest
 
 #Region "ctor"
 
@@ -25,13 +25,12 @@ Namespace Addresses
 
 #Region "Overrides Response"
 
-        Public Overrides Sub response(ByRef r As HttpWebResponse)
-            Using reader = New IO.StreamReader(r.GetResponseStream())
-                Console.Write(reader.ReadToEnd())
+        Public Overrides ReadOnly Property responseType As Type
+            Get
+                Throw New NotImplementedException()
+            End Get
 
-            End Using
-
-        End Sub
+        End Property
 
 #End Region
 

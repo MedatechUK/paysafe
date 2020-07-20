@@ -1,4 +1,5 @@
-﻿Public Class googlePayPaymentToken : Implements IDisposable
+﻿Namespace PaySafe
+    Public Class googlePayPaymentToken : Implements IDisposable
 
     Private _signature As String
     ''' <summary> 
@@ -189,3 +190,5 @@
 #End Region
 
 End Class
+
+End Namespace

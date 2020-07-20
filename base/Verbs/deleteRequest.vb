@@ -1,16 +1,21 @@
 ﻿Imports System.Net
 
-Public MustInherit Class deleteRequest : Inherits Request
+Namespace PaySafe.Base
 
-    Sub New(ParamArray Args() As String)
-        MyBase.New(Args)
+    Public MustInherit Class deleteRequest : Inherits Request
 
-    End Sub
+        Sub New(ParamArray Args() As String)
+            MyBase.New(Args)
 
-    Public Overrides ReadOnly Property verb As String
-        Get
-            Return "DELETE"
-        End Get
-    End Property
+        End Sub
 
-End Class
+        Public Overrides ReadOnly Property verb As String
+            Get
+                Return "DELETE"
+            End Get
+        End Property
+
+    End Class
+
+End Namespace
+
