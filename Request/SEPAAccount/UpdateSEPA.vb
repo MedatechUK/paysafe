@@ -7,7 +7,7 @@ Namespace PaySafe.Request.SEPAAccount
 #Region "ctor"
 
         Sub New(Settings As PaySafe.Settings, e As Object, ParamArray Args() As String)
-            MyBase.New(e, Args)
+            MyBase.New(Settings, e, Args)
 
         End Sub
 

@@ -3,6 +3,7 @@ Imports System.Net
 Imports System.Text
 Imports MedatechUK.PaySafe
 Imports Newtonsoft
+Imports Newtonsoft.Json
 
 Namespace PaySafe.Base
 
@@ -25,88 +26,81 @@ Namespace PaySafe.Base
             End Set
         End Property
 
-        Sub New(Settings As PaySafe.Settings, e As Object, ParamArray args() As String)
-            _Request = CType(HttpWebRequest.Create(String.Format("{0}{1}", Settings.baseUrl, String.Format(Me.uri, args))), Net.HttpWebRequest)
-
-            With _Request
-                .Method = Me.verb
-                .Proxy = Nothing
-                .UserAgent = "Medatech .net oData Client"
-                .ContentType = "application/json"
-                .Headers.Add("authorization", System.Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(Settings.APIkey)).ToString)
-
-                Try
-                    Using writer = New StreamWriter(_Request.GetRequestStream())
-                        writer.Write(ASCIIEncoding.ASCII.GetBytes(Json.JsonConvert.SerializeObject(e)))
-                        .ContentLength = writer.BaseStream.Length
-
-                    End Using
-
-                Catch : End Try
-
-                Using r = TryCast(_Request.GetResponse(), HttpWebResponse)
-                    With r
-                        If .StatusCode = 200 Then
-                            Using reader = New IO.StreamReader(r.GetResponseStream())
-                                Result = Json.JsonConvert.DeserializeObject(reader.ReadToEnd(), responseType)
-
-                            End Using
-
-                        Else
-                            Try
-                                Using reader = New IO.StreamReader(r.GetResponseStream())
-                                    Result = Json.JsonConvert.DeserializeObject(reader.ReadToEnd(), GetType(PaySafe.error))
-
-                                End Using
-
-                            Catch ex As Exception
-
-                            End Try
-
-                        End If
-                    End With
-
-
-                End Using
-
-            End With
+        Sub New(Settings As PaySafe.Settings, ParamArray args() As String)
+            Request(Settings, Nothing, args)
 
         End Sub
 
-        Sub New(Settings As PaySafe.Settings, ParamArray args() As String)
+        Sub New(Settings As PaySafe.Settings, e As Object, ParamArray args() As String)
+            Request(Settings, e, args)
+
+        End Sub
+
+        Private Sub Request(Settings As PaySafe.Settings, e As Object, ParamArray args() As String)
+
+            Dim r As Object
+            Dim buffer(1024) As Byte
+            Dim bytesRead As Integer
 
             _Request = CType(HttpWebRequest.Create(String.Format("{0}{1}", Settings.baseUrl, String.Format(Me.uri, args))), Net.HttpWebRequest)
             With _Request
+
                 .Method = Me.verb
                 .Proxy = Nothing
                 .UserAgent = "Medatech .net oData Client"
                 .ContentType = "application/json"
-                .Headers.Add("authorization", System.Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(Settings.APIkey)).ToString)
+                .Headers.Add("Authorization", Settings.Auth)
 
-                Using r = TryCast(_Request.GetResponse(), HttpWebResponse)
-                    With r
-                        If .StatusCode = 200 Then
-                            Using reader = New IO.StreamReader(r.GetResponseStream())
-                                Result = Json.JsonConvert.DeserializeObject(reader.ReadToEnd(), responseType)
+                Dim js = New JsonSerializerSettings()
+                js.NullValueHandling = NullValueHandling.Ignore
+
+                Dim rStr As String = JsonConvert.SerializeObject(e, js)
+                Console.Write(rStr)
+
+                Dim Request As MemoryStream = New MemoryStream(ASCIIEncoding.ASCII.GetBytes(rStr))
+                Try
+                    If Not e Is Nothing Then
+                        Using requestStream As Stream = .GetRequestStream()
+                            With requestStream
+                                While True
+                                    bytesRead = Request.Read(buffer, 0, buffer.Length)
+                                    If bytesRead = 0 Then
+                                        Exit While
+
+                                    End If
+                                    .Write(buffer, 0, bytesRead)
+
+                                End While
+
+                            End With
+
+                        End Using
+
+                    End If
+
+                    r = .GetResponse
+                    Using reader As New StreamReader(TryCast(r, WebResponse).GetResponseStream)
+                        _result = Json.JsonConvert.DeserializeObject(reader.ReadToEnd(), Me.responseType)
+
+                    End Using
+
+                Catch ex As WebException
+                    With ex
+                        If TryCast(.Response, HttpWebResponse) Is Nothing Then
+                            r = New Exception(ex.Status.ToString)
+
+                        Else
+                            Using reader As New StreamReader(.Response.GetResponseStream)
+                                _result = Json.JsonConvert.DeserializeObject(reader.ReadToEnd(), GetType(ResponseErr))
 
                             End Using
 
-                        Else
-                            Try
-                                Using reader = New IO.StreamReader(r.GetResponseStream())
-                                    _result = Json.JsonConvert.DeserializeObject(reader.ReadToEnd(), GetType(PaySafe.error))
-
-                                End Using
-
-                            Catch ex As Exception
-
-                            End Try
 
                         End If
 
                     End With
 
-                End Using
+                End Try
 
             End With
 

@@ -1,6 +1,18 @@
-﻿Namespace PaySafe
+﻿Imports System.Text
+
+Namespace PaySafe
 
     Public Class Settings : Implements IDisposable
+
+        Private _APIUser As String = ""
+        Public Property APIUser As String
+            Get
+                Return _APIUser
+            End Get
+            Set(value As String)
+                _APIUser = value
+            End Set
+        End Property
 
         Private _BaseURL As String = "https://api.test.paysafe.com/customervault/"
         Public Property baseUrl As String
@@ -20,6 +32,22 @@
             Set(value As String)
                 _APIKey = value
             End Set
+        End Property
+
+        Public ReadOnly Property Auth As String
+            Get
+                Return String.Format("Basic {0}",
+                    System.Convert.ToBase64String(
+                        ASCIIEncoding.ASCII.GetBytes(
+                            String.Format(
+                                "{0}:{1}",
+                                APIUser,
+                                APIkey
+                            )
+                        )
+                    )
+                ).ToString()
+            End Get
         End Property
 
 #Region "IDisposable Support"
