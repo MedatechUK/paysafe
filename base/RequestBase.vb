@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 Imports System.Text
-Imports MedatechUK.PaySafe
+Imports MedatechUK.PaySafe.Vault
 Imports Newtonsoft
 Imports Newtonsoft.Json
 

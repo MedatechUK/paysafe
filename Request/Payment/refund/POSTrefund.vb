@@ -1,8 +1,12 @@
-﻿Imports System.Net
+Imports System.IO
+Imports System.Net
 
-Namespace PaySafe.Request.ACHAccount
+Namespace PaySafe.Request.POSTrefund
 
-    Public Class [Update] : Inherits PaySafe.Base.updateRequest
+''' <summary>
+''' Submit a Refund
+''' </summary>
+    Public Class [Create]  Inherits PaySafe.Base.createRequest
 
 #Region "ctor"
 
@@ -17,7 +21,7 @@ Namespace PaySafe.Request.ACHAccount
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "v1/profiles/{0}/achbankaccounts/{1}"
+                Return "settlements/{0}/refunds"
             End Get
         End Property
 
@@ -37,3 +41,4 @@ Namespace PaySafe.Request.ACHAccount
     End Class
 
 End Namespace
+
