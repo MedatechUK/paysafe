@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.GETvoid
 
-''' <summary>
+''' '''<summary>
 ''' Look Up a Void Authorization
-''' </summary>
+''' '''<summary>
     Public Class [Get] Inherits PaySafe.Base.getRequest
 
 #Region "ctor"

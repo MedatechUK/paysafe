@@ -44,7 +44,7 @@
             End Set
         End Property
 
-        Private _status As String
+        Private _status As tmandateStatus
         ''' <summary> 
         '''This is the mandate status. Possible values are:
         '''INITIAL – The mandate has been created but is not ready to be batched
@@ -58,11 +58,11 @@
         '''INACTIVE – The mandate has been deleted
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property status As String
+        Public Property status As tmandateStatus
             Get
                 Return _status
             End Get
-            Set(value As String)
+            Set(value As tmandateStatus)
                 _status = value
             End Set
         End Property

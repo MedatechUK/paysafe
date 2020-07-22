@@ -48,7 +48,7 @@ Namespace PaySafe.Vault
             End Set
         End Property
 
-        Private _status As String
+        Private _status As tbankStatus
         ''' <summary> 
         '''This is the status of the request. Possible values are:
         '''ACTIVE – The bank account has been created.
@@ -57,11 +57,11 @@ Namespace PaySafe.Vault
         '''Note: By default, the bank account is created with the status of ACTIVE.
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property status As String
+        Public Property status As tbankStatus
             Get
                 Return _status
             End Get
-            Set(value As String)
+            Set(value As tbankStatus)
                 _status = value
             End Set
         End Property

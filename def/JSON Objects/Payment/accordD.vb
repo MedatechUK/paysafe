@@ -1,19 +1,21 @@
+Imports MedatechUK.PaySafe.Constant
+
 Namespace PaySafe.Payment
 
-Public Class [accordD] : Implements IDisposable
+    Public Class [accordD] : Implements IDisposable
 
-        Private _financingType As String
+        Private _financingType As tFinacingType
         ''' <summary> 
         ''' This is the type of financing offered.
         ''' DEFERRED_PAYMENT � Deferred payment financing
         ''' EQUAL_PAYMENT � Equal payment financing
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [financingType] As String
+        Public Property [financingType] As tFinacingType
             Get
                 Return _financingType
             End Get
-            Set(value As String)
+            Set(value As tFinacingType)
                 _financingType = value
             End Set
         End Property
@@ -68,12 +70,12 @@ Public Class [accordD] : Implements IDisposable
         Private disposedValue As Boolean ' To detect redundant calls
 
         Protected Overridable Sub Dispose(disposing As Boolean)
-        If Not disposedValue Then
-            If disposing Then
+            If Not disposedValue Then
+                If disposing Then
+                End If
             End If
-        End If
-        disposedValue = True
-    End Sub
+            disposedValue = True
+        End Sub
 
         Public Sub Dispose() Implements IDisposable.Dispose
             Dispose(True)
@@ -81,6 +83,6 @@ Public Class [accordD] : Implements IDisposable
 
 #End Region
 
-    End class
+    End Class
 
-end Namespace
+End Namespace

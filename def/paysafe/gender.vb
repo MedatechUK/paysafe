@@ -1,7 +1,7 @@
 ﻿Namespace PaySafe.Constant
     Public Enum tGender
-        M = 1
-        F = 2
+        M
+        F
 
     End Enum
 End Namespace

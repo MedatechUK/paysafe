@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.PUTauths
 
-''' <summary>
+''' '''<summary>
 ''' Update an Authorization
-''' </summary>
+''' '''<summary>
     Public Class [Update]  Inherits PaySafe.Base.updateRequest
 
 #Region "ctor"

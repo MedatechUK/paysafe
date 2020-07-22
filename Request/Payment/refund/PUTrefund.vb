@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.PUTrefund
 
-''' <summary>
+''' '''<summary>
 ''' Cancel a Refund
-''' </summary>
+''' '''<summary>
     Public Class [Update]  Inherits PaySafe.Base.updateRequest
 
 #Region "ctor"

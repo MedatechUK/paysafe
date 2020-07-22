@@ -3,15 +3,15 @@ Imports System.Net
 
 Namespace PaySafe.Request.GETauths
 
-''' <summary>
-''' Look Up an Authorization
-''' </summary>
-    Public Class [Get] Inherits PaySafe.Base.getRequest
+    ''' <summary>
+    ''' Look Up an Authorization
+    ''' </summary>
+    Public Class [Get] : Inherits PaySafe.Base.getRequest
 
 #Region "ctor"
 
-        Sub New(Settings As PaySafe.Settings, e As Object, ParamArray Args() As String)
-            MyBase.New(Settings, e, Args)
+        Sub New(Settings As PaySafe.Settings, ParamArray Args() As String)
+            MyBase.New(Settings, Args)
 
         End Sub
 

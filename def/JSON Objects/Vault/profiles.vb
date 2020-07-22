@@ -15,7 +15,7 @@
             End Set
         End Property
 
-        Private _status As String
+        Private _status As tprofilesStatus
         ''' <summary> 
         '''This is the status of the customer profile. Possible values are:
         '''INITIAL
@@ -25,11 +25,11 @@
         '''status to an INITIAL state (e.g., in cases where you first want to validate the customer).
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property status As String
+        Public Property status As tprofilesStatus
             Get
                 Return _status
             End Get
-            Set(value As String)
+            Set(value As tprofilesStatus)
                 _status = value
             End Set
         End Property

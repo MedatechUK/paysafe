@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.PUTsettle
 
-''' <summary>
+''' '''<summary>
 ''' Cancel a Settlement
-''' </summary>
+''' '''<summary>
     Public Class [Update]  Inherits PaySafe.Base.updateRequest
 
 #Region "ctor"

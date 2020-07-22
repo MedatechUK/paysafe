@@ -20,8 +20,8 @@ Namespace My.Resources
     'To add or remove a member, edit your .ResX file then rerun ResGen
     'with the /str option, or rebuild your VS project.
     '''<summary>
-    '''  A strongly-typed resource class, for looking up localized strings, etc.
-    '''</summary>
+      A strongly-typed resource class, for looking up localized strings, etc.
+    '''<summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
@@ -33,8 +33,8 @@ Namespace My.Resources
         Private resourceCulture As Global.System.Globalization.CultureInfo
         
         '''<summary>
-        '''  Returns the cached ResourceManager instance used by this class.
-        '''</summary>
+          Returns the cached ResourceManager instance used by this class.
+        '''<summary>
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
         Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
@@ -47,9 +47,9 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Overrides the current thread's CurrentUICulture property for all
-        '''  resource lookups using this strongly typed resource class.
-        '''</summary>
+          Overrides the current thread's CurrentUICulture property for all
+          resource lookups using this strongly typed resource class.
+        '''<summary>
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
         Friend Property Culture() As Global.System.Globalization.CultureInfo
             Get

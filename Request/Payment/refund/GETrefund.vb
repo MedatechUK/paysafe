@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.GETrefund
 
-''' <summary>
+''' '''<summary>
 ''' Look Up a Refund
-''' </summary>
+''' '''<summary>
     Public Class [Get] Inherits PaySafe.Base.getRequest
 
 #Region "ctor"

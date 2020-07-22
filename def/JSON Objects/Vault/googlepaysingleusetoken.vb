@@ -1,4 +1,6 @@
-﻿Namespace PaySafe.Vault
+﻿Imports MedatechUK.PaySafe.Payment
+
+Namespace PaySafe.Vault
     Public Class googlepaysingleusetoken : Implements IDisposable
 
         Private _googlePayPaymentToken As String
@@ -15,16 +17,16 @@
             End Set
         End Property
 
-        Private _card As String
+        Private _card As card
         ''' <summary> 
         '''These are the details of the virtual card.
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property card As String
+        Public Property card As card
             Get
                 Return _card
             End Get
-            Set(value As String)
+            Set(value As card)
                 _card = value
             End Set
         End Property

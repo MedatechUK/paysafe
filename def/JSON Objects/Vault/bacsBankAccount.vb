@@ -44,25 +44,25 @@
         End Set
     End Property
 
-    Private _status As String
-    ''' <summary> 
-    '''This is the status of the request. Possible values are:
-    '''ACTIVE – The bank account has been created.
-    '''INVALID – The bank account is invalid.
-    '''INACTIVE – The bank account has been deleted.
-    '''Note: By default, the bank account is created with the status of ACTIVE.
-    ''' </summary> 
-    ''' <returns></returns> 
-    Public Property status As String
-        Get
-            Return _status
-        End Get
-        Set(value As String)
-            _status = value
-        End Set
-    End Property
+        Private _status As tbankStatus
+        ''' <summary> 
+        '''This is the status of the request. Possible values are:
+        '''ACTIVE – The bank account has been created.
+        '''INVALID – The bank account is invalid.
+        '''INACTIVE – The bank account has been deleted.
+        '''Note: By default, the bank account is created with the status of ACTIVE.
+        ''' </summary> 
+        ''' <returns></returns> 
+        Public Property status As tbankStatus
+            Get
+                Return _status
+            End Get
+            Set(value As tbankStatus)
+                _status = value
+            End Set
+        End Property
 
-    Private _statusReason As String
+        Private _statusReason As String
     ''' <summary> 
     ''' If the status is INVALID, this is a description of why the account is invalid (e.g., account closed).
     ''' </summary> 

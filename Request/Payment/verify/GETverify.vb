@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.GETverify
 
-''' <summary>
+''' '''<summary>
 ''' Look Up a Verification
-''' </summary>
+''' '''<summary>
     Public Class [Get] Inherits PaySafe.Base.getRequest
 
 #Region "ctor"

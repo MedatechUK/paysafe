@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.POSTverify
 
-''' <summary>
+''' '''<summary>
 ''' Verify a Card
-''' </summary>
+''' '''<summary>
     Public Class [Create]  Inherits PaySafe.Base.createRequest
 
 #Region "ctor"

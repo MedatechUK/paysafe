@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.POSTauths
 
-''' <summary>
+''' '''<summary>
 ''' Submit an Authorization or Purchase
-''' </summary>
+''' '''<summary>
     Public Class [Create]  Inherits PaySafe.Base.createRequest
 
 #Region "ctor"

@@ -1,89 +1,89 @@
 ﻿Namespace PaySafe.Constant.ISO
     Public Enum tCurrency
-        ARS = 1
-        AUD = 2
-        AZN = 3
-        BHD = 4
-        BYR = 5
-        BOB = 6
-        BAM = 7
-        BRL = 8
-        BGN = 9
-        CAD = 10
-        CLP = 11
-        CNY = 12
-        COP = 13
-        CRC = 14
-        HRK = 15
-        CZK = 16
-        DKK = 17
-        DOP = 18
-        XCD = 19
-        EGP = 20
-        ETB = 21
-        EUR = 22
-        FJD = 23
-        GEL = 24
-        GTQ = 25
-        HTG = 26
-        HNL = 27
-        HKD = 28
-        HUF = 29
-        ISK = 30
-        INR = 31
-        IDR = 32
-        IRR = 33
-        JMD = 34
-        JPY = 35
-        JOD = 36
-        KZT = 37
-        KES = 38
-        KRW = 39
-        KWD = 40
-        LVL = 41
-        LBP = 42
-        LYD = 43
-        LTL = 44
-        MWK = 45
-        MYR = 46
-        MUR = 47
-        MXN = 48
-        MDL = 49
-        MAD = 50
-        ILS = 51
-        NZD = 52
-        NGN = 53
-        NOK = 54
-        OMR = 55
-        PKR = 56
-        PAB = 57
-        PYG = 58
-        PEN = 59
-        PHP = 60
-        PLN = 61
-        GBP = 62
-        QAR = 63
-        RON = 64
-        RUB = 65
-        SAR = 66
-        RSD = 67
-        SGD = 68
-        ZAR = 69
-        LKR = 70
-        SEK = 71
-        CHF = 72
-        SYP = 73
-        TWD = 74
-        THB = 75
-        TTD = 76
-        TND = 77
-        [TRY] = 78
-        UAH = 79
-        AED = 80
-        UYU = 81
-        USD = 82
-        VEF = 83
-        VND = 84
+        ARS
+        AUD
+        AZN
+        BHD
+        BYR
+        BOB
+        BAM
+        BRL
+        BGN
+        CAD
+        CLP
+        CNY
+        COP
+        CRC
+        HRK
+        CZK
+        DKK
+        DOP
+        XCD
+        EGP
+        ETB
+        EUR
+        FJD
+        GEL
+        GTQ
+        HTG
+        HNL
+        HKD
+        HUF
+        ISK
+        INR
+        IDR
+        IRR
+        JMD
+        JPY
+        JOD
+        KZT
+        KES
+        KRW
+        KWD
+        LVL
+        LBP
+        LYD
+        LTL
+        MWK
+        MYR
+        MUR
+        MXN
+        MDL
+        MAD
+        ILS
+        NZD
+        NGN
+        NOK
+        OMR
+        PKR
+        PAB
+        PYG
+        PEN
+        PHP
+        PLN
+        GBP
+        QAR
+        RON
+        RUB
+        SAR
+        RSD
+        SGD
+        ZAR
+        LKR
+        SEK
+        CHF
+        SYP
+        TWD
+        THB
+        TTD
+        TND
+        [TRY]
+        UAH
+        AED
+        UYU
+        USD
+        VEF
+        VND
 
     End Enum
 

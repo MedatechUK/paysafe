@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.GETsettle
 
-''' <summary>
+''' '''<summary>
 ''' Look Up a Settlement
-''' </summary>
+''' '''<summary>
     Public Class [Get] Inherits PaySafe.Base.getRequest
 
 #Region "ctor"

@@ -1,3 +1,5 @@
+Imports MedatechUK.PaySafe.Constant
+
 Namespace PaySafe.Payment
 
     Public Class [DJN] : Implements IDisposable
@@ -30,16 +32,16 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _financingType As String
+        Private _financingType As tFinacingType
         ''' <summary> 
         ''' This is the type of financing offered.
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [financingType] As String
+        Public Property [financingType] As tFinacingType
             Get
                 Return _financingType
             End Get
-            Set(value As String)
+            Set(value As tFinacingType)
                 _financingType = value
             End Set
         End Property

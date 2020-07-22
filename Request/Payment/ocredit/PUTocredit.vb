@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.PUTocredit
 
-''' <summary>
+''' '''<summary>
 ''' Cancel an Original Credit
-''' </summary>
+''' '''<summary>
     Public Class [Update]  Inherits PaySafe.Base.updateRequest
 
 #Region "ctor"

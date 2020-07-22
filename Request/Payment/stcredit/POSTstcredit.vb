@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.POSTstcredit
 
-''' <summary>
+''' '''<summary>
 ''' Submit a Standalone Credit
-''' </summary>
+''' '''<summary>
     Public Class [Create]  Inherits PaySafe.Base.createRequest
 
 #Region "ctor"

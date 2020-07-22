@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.POSTsettle
 
-''' <summary>
+''' '''<summary>
 ''' Settle an Authorization
-''' </summary>
+''' '''<summary>
     Public Class [Create]  Inherits PaySafe.Base.createRequest
 
 #Region "ctor"

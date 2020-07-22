@@ -3,9 +3,9 @@ Imports System.Net
 
 Namespace PaySafe.Request.GETstcredit
 
-''' <summary>
+''' '''<summary>
 ''' Look Up a Standalone Credit
-''' </summary>
+''' '''<summary>
     Public Class [Get] Inherits PaySafe.Base.getRequest
 
 #Region "ctor"

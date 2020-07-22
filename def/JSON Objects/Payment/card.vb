@@ -71,16 +71,16 @@ End Property
             End Set
         End Property
 
-        Private _cardExpiry As String
+        Private _cardExpiry As cardExpiry
         ''' <summary> 
         ''' This is the card's expiry date.
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [cardExpiry] As String
+        Public Property [cardExpiry] As cardExpiry
             Get
                 Return _cardExpiry
             End Get
-            Set(value As String)
+            Set(value As cardExpiry)
                 _cardExpiry = value
             End Set
         End Property

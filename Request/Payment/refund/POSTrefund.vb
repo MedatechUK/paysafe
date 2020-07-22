@@ -3,10 +3,10 @@ Imports System.Net
 
 Namespace PaySafe.Request.POSTrefund
 
-''' <summary>
-''' Submit a Refund
-''' </summary>
-    Public Class [Create]  Inherits PaySafe.Base.createRequest
+    ''' <summary>
+    ''' Submit a Refund
+    '''</summary>
+    Public Class [Create] : Inherits PaySafe.Base.createRequest
 
 #Region "ctor"
 

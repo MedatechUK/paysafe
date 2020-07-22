@@ -1,16 +1,16 @@
 ﻿Namespace PaySafe.Vault
     Public Class singleusetoken : Implements IDisposable
 
-        Private _card As String
+        Private _card As cards
         ''' <summary> 
         '''These are the details of the card.
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property card As String
+        Public Property card As cards
             Get
                 Return _card
             End Get
-            Set(value As String)
+            Set(value As cards)
                 _card = value
             End Set
         End Property
