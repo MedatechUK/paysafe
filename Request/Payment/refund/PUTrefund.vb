@@ -1,12 +1,12 @@
 Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.PUTrefund
+Namespace PaySafe.Payment.Request.refund
 
-''' '''<summary>
-''' Cancel a Refund
-''' '''<summary>
-    Public Class [Update]  Inherits PaySafe.Base.updateRequest
+    '''<summary>
+    ''' Cancel a Refund
+    '''</summary>
+    Public Class [Update] : Inherits PaySafe.Base.updateRequest
 
 #Region "ctor"
 

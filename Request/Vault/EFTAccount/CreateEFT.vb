@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.EFTAccount
+Namespace PaySafe.Vault.Request.EFTAccount
 
     Public Class Create : Inherits PaySafe.Base.createRequest
 

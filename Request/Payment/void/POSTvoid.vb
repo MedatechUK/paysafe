@@ -1,12 +1,12 @@
 Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.POSTvoid
+Namespace PaySafe.Payment.Request.void
 
-''' '''<summary>
-''' Void (Reverse) an Authorization
-''' '''<summary>
-    Public Class [Create]  Inherits PaySafe.Base.createRequest
+    '''<summary>
+    ''' Void (Reverse) an Authorization
+    '''</summary>
+    Public Class [Create] : Inherits PaySafe.Base.createRequest
 
 #Region "ctor"
 

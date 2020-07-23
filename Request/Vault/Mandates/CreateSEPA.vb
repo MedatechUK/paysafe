@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.Mandates
+Namespace PaySafe.Vault.Request.Mandates
 
     Public Class CreateSEPA : Inherits PaySafe.Base.createRequest
 

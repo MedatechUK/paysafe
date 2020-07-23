@@ -1,6 +1,6 @@
 ﻿Imports System.Net
 
-Namespace PaySafe.Request.SingleUseToken
+Namespace PaySafe.Vault.Request.SingleUseToken
 
     Public Class [Get] : Inherits PaySafe.Base.createRequest
 

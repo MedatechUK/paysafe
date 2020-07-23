@@ -1,12 +1,12 @@
 Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.PUTauths
+Namespace PaySafe.Payment.Request.auths
 
-''' '''<summary>
-''' Update an Authorization
-''' '''<summary>
-    Public Class [Update]  Inherits PaySafe.Base.updateRequest
+    '''<summary>
+    ''' Update an Authorization
+    '''</summary>
+    Public Class [Update] : Inherits PaySafe.Base.updateRequest
 
 #Region "ctor"
 

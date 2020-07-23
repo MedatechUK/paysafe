@@ -1,6 +1,6 @@
 ﻿Imports System.Net
 
-Namespace PaySafe.Request.Cards
+Namespace PaySafe.Vault.Request.Cards
 
     Public Class [Update] : Inherits PaySafe.Base.updateRequest
 

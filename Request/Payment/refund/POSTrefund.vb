@@ -1,7 +1,7 @@
 Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.POSTrefund
+Namespace PaySafe.Payment.Request.refund
 
     ''' <summary>
     ''' Submit a Refund

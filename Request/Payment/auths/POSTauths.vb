@@ -1,12 +1,12 @@
 Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.POSTauths
+Namespace PaySafe.Payment.Request.auths
 
-''' '''<summary>
-''' Submit an Authorization or Purchase
-''' '''<summary>
-    Public Class [Create]  Inherits PaySafe.Base.createRequest
+    '''<summary>
+    ''' Submit an Authorization or Purchase
+    '''</summary>
+    Public Class [Create] : Inherits PaySafe.Base.createRequest
 
 #Region "ctor"
 

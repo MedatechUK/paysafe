@@ -1,4 +1,4 @@
-Namespace PaySafe.Payment
+Namespace PaySafe
 
     Public Class [dateOfBirth] : Implements IDisposable
 

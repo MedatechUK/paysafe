@@ -1,12 +1,12 @@
 Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.PUTstcredit
+Namespace PaySafe.Payment.Request.stcredit
 
-''' '''<summary>
-''' Cancel a Standalone Credit
-''' '''<summary>
-    Public Class [Update]  Inherits PaySafe.Base.updateRequest
+    '''<summary>
+    ''' Cancel a Standalone Credit
+    '''</summary>
+    Public Class [Update] : Inherits PaySafe.Base.updateRequest
 
 #Region "ctor"
 

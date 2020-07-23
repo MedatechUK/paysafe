@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.Mandates
+Namespace PaySafe.Vault.Request.Mandates
 
     Public Class CreateBACS : Inherits PaySafe.Base.createRequest
 

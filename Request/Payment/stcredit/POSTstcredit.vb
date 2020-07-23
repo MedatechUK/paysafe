@@ -1,12 +1,12 @@
 Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.POSTstcredit
+Namespace PaySafe.Payment.Request.stcredit
 
-''' '''<summary>
-''' Submit a Standalone Credit
-''' '''<summary>
-    Public Class [Create]  Inherits PaySafe.Base.createRequest
+    '''<summary>
+    ''' Submit a Standalone Credit
+    '''</summary>
+    Public Class [Create] : Inherits PaySafe.Base.createRequest
 
 #Region "ctor"
 

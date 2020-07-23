@@ -1,6 +1,6 @@
 ﻿Imports System.Net
 
-Namespace PaySafe.Request.Profile
+Namespace PaySafe.Vault.Request.Profile
 
     Public Class [Delete] : Inherits PaySafe.Base.deleteRequest
 

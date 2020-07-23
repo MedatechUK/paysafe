@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.SingleUseToken
+Namespace PaySafe.Vault.Request.SingleUseToken
 
     Public Class CreateCard : Inherits PaySafe.Base.createRequest
 

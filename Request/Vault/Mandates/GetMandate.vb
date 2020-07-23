@@ -1,6 +1,6 @@
 ﻿Imports System.Net
 
-Namespace PaySafe.Request.Mandates
+Namespace PaySafe.Vault.Request.Mandates
 
     Public Class [Get] : Inherits PaySafe.Base.getRequest
 

@@ -1,12 +1,12 @@
 Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.POSTverify
+Namespace PaySafe.Payment.Request.verify
 
-''' '''<summary>
-''' Verify a Card
-''' '''<summary>
-    Public Class [Create]  Inherits PaySafe.Base.createRequest
+    '''<summary>
+    ''' Verify a Card
+    '''</summary>
+    Public Class [Create] : Inherits PaySafe.Base.createRequest
 
 #Region "ctor"
 

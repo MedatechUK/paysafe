@@ -1,6 +1,6 @@
 ﻿Imports Newtonsoft.Json
 
-Namespace PaySafe.Vault
+Namespace PaySafe
 
     Public Class ResponseErr : Implements IDisposable
 
@@ -51,10 +51,10 @@ Namespace PaySafe.Vault
     Public Class [error] : Implements IDisposable
 
         Private _code As String
-         '''<summary> 
-        The error code.
-         '''<summary> 
-         <returns></returns> 
+        '''<summary> 
+        '''The error code.
+        '''</summary> 
+        ''' <returns></returns> 
         Public Property code As String
             Get
                 Return _code
@@ -65,10 +65,10 @@ Namespace PaySafe.Vault
         End Property
 
         Private _message As String
-         '''<summary> 
-        A description of the error. Also shown in the X-Application-Status-Code response header.
-         '''<summary> 
-         <returns></returns> 
+        '''<summary> 
+        '''A description Of the Error. Also shown In the X-Application-Status-Code response header.
+        '''</summary> 
+        ''' <returns></returns> 
         Public Property message As String
             Get
                 Return _message
@@ -79,10 +79,10 @@ Namespace PaySafe.Vault
         End Property
 
         Private _fieldErrors As New List(Of FieldError)
-         '''<summary> 
-        Details of any parameter value errors (optional). One or more field:error pairs, where field is the field name and error is the error in the field.
-         '''<summary> 
-         <returns></returns> 
+        '''<summary> 
+        '''Details of any parameter value errors (optional). One Or more fieldError pairs, where field Is the field name And Error Is the Error In the field.
+        '''</summary> 
+        ''' <returns></returns> 
         Public Property fieldErrors As List(Of FieldError)
             Get
                 Return _fieldErrors
@@ -93,11 +93,11 @@ Namespace PaySafe.Vault
         End Property
 
         Private _links As New List(Of Link)
-         '''<summary> 
-        One or more rel/href pairs, where rel is "errorinfo", and href is the Developer Center URL containing a description of the error.
-         '''<summary> 
-         <returns></returns> 
-        Public Property links As List(Of link)
+        '''<summary> 
+        '''One Or more rel/href pairs, where rel Is "errorinfo", And href Is the Developer Center URL containing a description of the error.
+        '''</summary> 
+        ''' <returns></returns> 
+        Public Property links As List(Of Link)
             Get
                 Return _links
             End Get

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>MedatechUK.PaySafe</id>
-    <version>1.3.0</version>
+    <version>1.4.0</version>
     <authors>Simon Barnett</authors>
     <owners>Simon Barnett</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -10,7 +10,7 @@
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
     <icon>medatech.png</icon>
     <description>A REST Client for PaySafe integrations.</description>
-    <releaseNotes>Updated BaseRequest to deserialise by overriden type in request. Implimented error response handling. Added Auth Property to the settings for base64 encoding Authorization string.</releaseNotes>
+    <releaseNotes>Namspace tidy. Requests are now broken down by their API - Payment or Vault.</releaseNotes>
     <repository type="git" url="https://github.com/MedatechUK/paysafe" />
 
   </metadata>

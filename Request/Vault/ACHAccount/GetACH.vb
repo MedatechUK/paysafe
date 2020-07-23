@@ -1,6 +1,6 @@
 ﻿Imports System.Net
 
-Namespace PaySafe.Request.ACHAccount
+Namespace PaySafe.Vault.Request.ACHAccount
 
     Public Class [Get] : Inherits PaySafe.Base.getRequest
 

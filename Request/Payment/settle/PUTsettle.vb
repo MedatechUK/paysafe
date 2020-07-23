@@ -1,12 +1,12 @@
 Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.PUTsettle
+Namespace PaySafe.Payment.Request.settle
 
-''' '''<summary>
-''' Cancel a Settlement
-''' '''<summary>
-    Public Class [Update]  Inherits PaySafe.Base.updateRequest
+    '''<summary>
+    ''' Cancel a Settlement
+    '''</summary>
+    Public Class [Update] : Inherits PaySafe.Base.updateRequest
 
 #Region "ctor"
 

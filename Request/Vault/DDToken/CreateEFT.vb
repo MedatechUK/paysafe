@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.DDToken
+Namespace PaySafe.Vault.Request.DDToken
 
     Public Class CreateEFT : Inherits PaySafe.Base.createRequest
 

@@ -1,7 +1,7 @@
 Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.GETauths
+Namespace PaySafe.Payment.Request.auths
 
     ''' <summary>
     ''' Look Up an Authorization

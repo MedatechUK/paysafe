@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.Profile
+Namespace PaySafe.Vault.Request.Profile
 
     Public Class CreateToken : Inherits PaySafe.Base.createRequest
 

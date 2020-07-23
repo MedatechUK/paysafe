@@ -1,17 +1,17 @@
 Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.GETrefund
+Namespace PaySafe.Payment.Request.refund
 
-''' '''<summary>
-''' Look Up a Refund
-''' '''<summary>
-    Public Class [Get] Inherits PaySafe.Base.getRequest
+    '''<summary>
+    ''' Look Up a Refund
+    '''</summary>
+    Public Class [Get] : Inherits PaySafe.Base.getRequest
 
 #Region "ctor"
 
-        Sub New(Settings As PaySafe.Settings, e As Object, ParamArray Args() As String)
-            MyBase.New(Settings, e, Args)
+        Sub New(Settings As PaySafe.Settings, ParamArray Args() As String)
+            MyBase.New(Settings, Args)
 
         End Sub
 

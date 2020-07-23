@@ -1,17 +1,17 @@
 Imports System.IO
 Imports System.Net
 
-Namespace PaySafe.Request.GETvoid
+Namespace PaySafe.Payment.Request.void
 
-''' '''<summary>
-''' Look Up a Void Authorization
-''' '''<summary>
-    Public Class [Get] Inherits PaySafe.Base.getRequest
+    ''' <summary>
+    ''' Look Up a Void Authorization
+    ''' </summary>
+    Public Class [Get] : Inherits PaySafe.Base.getRequest
 
 #Region "ctor"
 
-        Sub New(Settings As PaySafe.Settings, e As Object, ParamArray Args() As String)
-            MyBase.New(Settings, e, Args)
+        Sub New(Settings As PaySafe.Settings, ParamArray Args() As String)
+            MyBase.New(Settings, Args)
 
         End Sub
 
