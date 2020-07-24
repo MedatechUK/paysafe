@@ -1,8 +1,8 @@
 ﻿Imports System.Net
 
-Namespace PaySafe.Vault.Request.BACSAccount
+Namespace PaySafe.Vault.Addresses
 
-    Public Class [Delete] : Inherits PaySafe.Base.deleteRequest
+    Public Class [Get] : Inherits PaySafe.Base.getRequest
 
 #Region "ctor"
 
@@ -17,7 +17,7 @@ Namespace PaySafe.Vault.Request.BACSAccount
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "customervault/v1/profiles/{0}/bacsbankaccounts/{1}"
+                Return "v1/profiles/{0}/addresses/{1}"
             End Get
         End Property
 

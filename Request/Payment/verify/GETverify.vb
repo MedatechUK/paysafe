@@ -21,7 +21,7 @@ Namespace PaySafe.Payment.Request.verify
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "verifications/{0}"
+                Return "cardpayments/v1/accounts/{0}/verifications/{1}"
             End Get
         End Property
 

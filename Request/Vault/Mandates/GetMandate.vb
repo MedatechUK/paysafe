@@ -17,7 +17,7 @@ Namespace PaySafe.Vault.Request.Mandates
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "v1/profiles/profile_id/mandates/mandate_id"
+                Return "customervault/v1/profiles/profile_id/mandates/mandate_id"
             End Get
         End Property
 

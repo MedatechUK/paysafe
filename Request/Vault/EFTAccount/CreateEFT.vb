@@ -18,7 +18,7 @@ Namespace PaySafe.Vault.Request.EFTAccount
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "v1/profiles/{1}/eftbankaccounts"
+                Return "customervault/v1/profiles/{1}/eftbankaccounts"
             End Get
         End Property
 

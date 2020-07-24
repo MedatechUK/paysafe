@@ -19,7 +19,7 @@ Namespace PaySafe.Vault.Request.ACHAccount
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "v1/profiles/{0}/achbankaccounts/{1}"
+                Return "customervault/v1/profiles/{0}/achbankaccounts/{1}"
             End Get
         End Property
 

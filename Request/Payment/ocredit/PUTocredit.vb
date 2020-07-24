@@ -6,7 +6,7 @@ Namespace PaySafe.Payment.Request.ocredit
     '''<summary>
     ''' Cancel an Original Credit
     '''</summary>
-    Public Class [Update] : Inherits PaySafe.Base.updateRequest
+    Public Class [Cancel] : Inherits PaySafe.Base.updateRequest
 
 #Region "ctor"
 
@@ -21,7 +21,7 @@ Namespace PaySafe.Payment.Request.ocredit
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "originalcredits/{0}"
+                Return "cardpayments/v1/accounts/{0}/originalcredits/{1}"
             End Get
         End Property
 

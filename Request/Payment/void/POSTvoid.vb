@@ -21,7 +21,7 @@ Namespace PaySafe.Payment.Request.void
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "auths/{0}/voidauths"
+                Return "cardpayments/v1/accounts/{0}/auths/{1}/voidauths"
             End Get
         End Property
 

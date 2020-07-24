@@ -6,7 +6,7 @@ Namespace PaySafe.Payment.Request.stcredit
     '''<summary>
     ''' Cancel a Standalone Credit
     '''</summary>
-    Public Class [Update] : Inherits PaySafe.Base.updateRequest
+    Public Class [Cancel] : Inherits PaySafe.Base.updateRequest
 
 #Region "ctor"
 
@@ -21,7 +21,7 @@ Namespace PaySafe.Payment.Request.stcredit
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "standalonecredits/{0}"
+                Return "cardpayments/v1/accounts/{0}/standalonecredits/{1}"
             End Get
         End Property
 

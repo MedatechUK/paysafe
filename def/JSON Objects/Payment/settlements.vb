@@ -73,7 +73,7 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _txnTime As Date
+        Private _txnTime As Date?
         '''<summary> 
         '''This Is the date And time the request was processed. For example
         '''2014-01-26T10:32:28Z
@@ -81,7 +81,7 @@ Namespace PaySafe.Payment
         ''' <returns></returns> 
         Public Property [txnTime] As String
             Get
-                Return _txnTime
+                Return _txnTime.ToString
             End Get
             Set(value As String)
                 _txnTime = value
@@ -116,7 +116,7 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _status As tSettlementStatus
+        Private _status As tSettlementStatus?
         '''<summary> 
         '''This Is the status of the transaction request. Possible values are
         '''RECEIVED  Our system has received the request And Is waiting For the downstream processors response.
@@ -129,7 +129,12 @@ Namespace PaySafe.Payment
         ''' <returns></returns> 
         Public Property [status] As tSettlementStatus
             Get
-                Return _status
+                Try
+                    Return _status.ToString
+                Catch ex As Exception
+                    Return Nothing
+                End Try
+
             End Get
             Set(value As tSettlementStatus)
                 _status = value

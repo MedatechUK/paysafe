@@ -6,7 +6,7 @@ Namespace PaySafe.Payment.Request.refund
     '''<summary>
     ''' Cancel a Refund
     '''</summary>
-    Public Class [Update] : Inherits PaySafe.Base.updateRequest
+    Public Class [Cancel] : Inherits PaySafe.Base.updateRequest
 
 #Region "ctor"
 
@@ -21,7 +21,7 @@ Namespace PaySafe.Payment.Request.refund
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "refunds/{0}"
+                Return "cardpayments/v1/accounts/{0}/refunds/{1}"
             End Get
         End Property
 

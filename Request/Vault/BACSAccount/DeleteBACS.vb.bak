@@ -1,6 +1,6 @@
 ﻿Imports System.Net
 
-Namespace PaySafe.Vault.BACSAccount
+Namespace PaySafe.Vault.Request.BACSAccount
 
     Public Class [Delete] : Inherits PaySafe.Base.deleteRequest
 

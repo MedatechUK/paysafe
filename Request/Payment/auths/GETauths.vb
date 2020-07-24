@@ -21,7 +21,7 @@ Namespace PaySafe.Payment.Request.auths
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "auths/{0}"
+                Return "cardpayments/v1/accounts/{0}/auths/{1}"
             End Get
         End Property
 

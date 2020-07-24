@@ -21,7 +21,7 @@ Namespace PaySafe.Payment.Request.stcredit
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "standalonecredits"
+                Return "cardpayments/v1/accounts/{0}/standalonecredits"
             End Get
         End Property
 

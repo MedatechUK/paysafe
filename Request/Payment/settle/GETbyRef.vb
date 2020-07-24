@@ -1,8 +1,12 @@
-﻿Imports System.Net
+Imports System.IO
+Imports System.Net
 
-Namespace PaySafe.Vault.Request.BACSAccount
+Namespace PaySafe.Payment.Request.settle
 
-    Public Class [Delete] : Inherits PaySafe.Base.deleteRequest
+    '''<summary>
+    ''' Look Up a Settlement
+    '''</summary>
+    Public Class [GETbyRef] : Inherits PaySafe.Base.getRequest
 
 #Region "ctor"
 
@@ -17,7 +21,7 @@ Namespace PaySafe.Vault.Request.BACSAccount
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "customervault/v1/profiles/{0}/bacsbankaccounts/{1}"
+                Return "cardpayments/v1/accounts/{0}/settlements?merchantRefNum={1}&limit={2}&offset={3}&startDate={4}&endDate={5}"
             End Get
         End Property
 
@@ -37,3 +41,4 @@ Namespace PaySafe.Vault.Request.BACSAccount
     End Class
 
 End Namespace
+

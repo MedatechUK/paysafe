@@ -18,7 +18,7 @@ Namespace PaySafe.Vault.Request.SEPAAccount
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "v1/profiles/{1}/sepabankaccounts"
+                Return "customervault/v1/profiles/{1}/sepabankaccounts"
             End Get
         End Property
 

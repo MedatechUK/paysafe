@@ -21,7 +21,7 @@ Namespace PaySafe.Payment.Request.settle
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "auths/{0}/settlements"
+                Return "cardpayments/v1/accounts/{0}/auths/{1}/settlements"
             End Get
         End Property
 

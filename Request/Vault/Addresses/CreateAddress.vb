@@ -17,7 +17,7 @@ Namespace PaySafe.Vault.Addresses
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "v1/profiles/{0}/addresses"
+                Return "customervault/v1/profiles/{0}/addresses"
             End Get
         End Property
 

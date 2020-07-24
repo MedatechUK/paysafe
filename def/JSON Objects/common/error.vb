@@ -1,4 +1,5 @@
-﻿Imports Newtonsoft.Json
+﻿Imports System.Text
+Imports Newtonsoft.Json
 
 Namespace PaySafe
 
@@ -13,6 +14,36 @@ Namespace PaySafe
                 _Error = value
             End Set
         End Property
+
+        Public Overrides Function ToString() As String
+            Dim str As New StringBuilder
+            With [error]
+                str.AppendFormat(
+                    "{0}: {1}",
+                    .code,
+                    .message
+                ).AppendLine()
+
+                For Each e As FieldError In .fieldErrors
+                    str.AppendFormat(
+                        "{0}: {1}",
+                        e.field,
+                        e.error
+                    ).AppendLine()
+                Next
+                For Each e As Link In .links
+                    str.AppendFormat(
+                        "{0}: {1}",
+                        e.rel,
+                        e.href
+                    ).AppendLine()
+                Next
+
+            End With
+
+            Return str.ToString
+
+        End Function
 
 #Region "IDisposable Support"
         Private disposedValue As Boolean ' To detect redundant calls

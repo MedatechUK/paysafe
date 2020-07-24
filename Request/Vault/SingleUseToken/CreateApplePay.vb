@@ -18,7 +18,7 @@ Namespace PaySafe.Vault.Request.SingleUseToken
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "v1/applepaysingleusetokens"
+                Return "customervault/v1/applepaysingleusetokens"
             End Get
         End Property
 

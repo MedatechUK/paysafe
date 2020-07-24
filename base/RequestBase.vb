@@ -51,15 +51,17 @@ Namespace PaySafe.Base
                 .ContentType = "application/json"
                 .Headers.Add("Authorization", Settings.Auth)
 
+                Console.WriteLine("{0} {1}", Me.verb, String.Format("{0}{1}", Settings.baseUrl, String.Format(Me.uri, args)))
+
                 Dim js = New JsonSerializerSettings()
                 js.NullValueHandling = NullValueHandling.Ignore
 
                 Dim rStr As String = JsonConvert.SerializeObject(e, js)
-                Console.Write(rStr)
-
                 Dim Request As MemoryStream = New MemoryStream(ASCIIEncoding.ASCII.GetBytes(rStr))
                 Try
                     If Not e Is Nothing Then
+                        Console.WriteLine(rStr)
+
                         Using requestStream As Stream = .GetRequestStream()
                             With requestStream
                                 While True

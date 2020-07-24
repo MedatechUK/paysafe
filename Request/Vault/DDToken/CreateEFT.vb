@@ -18,7 +18,7 @@ Namespace PaySafe.Vault.Request.DDToken
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "v1/eftsingleusetokens"
+                Return "customervault/v1/eftsingleusetokens"
             End Get
         End Property
 

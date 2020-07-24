@@ -21,7 +21,7 @@ Namespace PaySafe.Payment.Request.ocredit
 
         Public Overrides ReadOnly Property uri As String
             Get
-                Return "originalcredits"
+                Return "cardpayments/v1/accounts/{0}/originalcredits"
             End Get
         End Property
 

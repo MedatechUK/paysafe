@@ -1,6 +1,6 @@
 ﻿Imports System.Net
 
-Namespace PaySafe.Vault.EFTAccount
+Namespace PaySafe.Vault.Request.EFTAccount
 
     Public Class [Update] : Inherits PaySafe.Base.updateRequest
 
