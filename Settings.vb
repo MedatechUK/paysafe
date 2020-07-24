@@ -14,7 +14,7 @@ Namespace PaySafe
             End Set
         End Property
 
-        Private _BaseURL As String = "https://api.test.paysafe.com/customervault/"
+        Private _BaseURL As String = "https://api.test.paysafe.com/"
         Public Property baseUrl As String
             Get
                 Return _BaseURL
