@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Net
 Imports oData
+Imports Newtonsoft.Json
 
 Partial Class _Default
     Inherits System.Web.UI.Page
@@ -12,10 +13,13 @@ Partial Class _Default
             Dim resp = o.GetResponse()
             If resp.GetType = GetType(System.Net.HttpWebResponse) Then
                 With TryCast(resp, WebResponse)
+                    Dim str As String
                     Using sr As New StreamReader(.GetResponseStream)
-                        result = Newtonsoft.Json.JsonConvert.DeserializeObject(sr.ReadToEnd)
+                        str = sr.ReadToEnd
 
                     End Using
+
+                    Dim ord = JsonConvert.DeserializeObject(Of ORD)(str)
 
                 End With
 
