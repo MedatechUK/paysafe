@@ -57,6 +57,8 @@ Namespace PaySafe.Base
                 js.NullValueHandling = NullValueHandling.Ignore
 
                 Dim rStr As String = JsonConvert.SerializeObject(e, js)
+                Console.WriteLine(rstr)
+
                 Dim Request As MemoryStream = New MemoryStream(ASCIIEncoding.ASCII.GetBytes(rStr))
                 Try
                     If Not e Is Nothing Then

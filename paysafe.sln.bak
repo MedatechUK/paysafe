@@ -7,7 +7,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "paysafe", "paysafe.vbproj",
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "psClient", "example\psClient.vbproj", "{CFDF74AE-2022-45BA-AF11-C1DA13F5B49D}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website", "website\", "{8A6FC546-5024-4BFD-978D-BEAEA3BBBA4B}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website", "..\website\", "{8A6FC546-5024-4BFD-978D-BEAEA3BBBA4B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_62269"
