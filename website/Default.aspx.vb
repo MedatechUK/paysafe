@@ -65,8 +65,6 @@ Partial Class _Default
                                                             .TEXT30 = ""
 
                                                         End With
-                                                        Dim EX As Exception = l.Post()
-                                                        If Not EX Is Nothing Then Throw New Exception(EX.Message)
 
                                                     Else
                                                         Throw New Exception(TryCast(.Result, ResponseErr).ToString)
@@ -84,6 +82,9 @@ Partial Class _Default
                                 End If
 
                             Next
+
+                            Dim EX As Exception = l.Post()
+                            If Not EX Is Nothing Then Throw New Exception(EX.Message)
 
                         Else
                             Throw New Exception(TryCast(resp, Exception).Message)
