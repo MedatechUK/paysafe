@@ -94,7 +94,7 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _card As card
+        Private _card As New card
         ''' <summary> 
         ''' These are the details of the card used.
         ''' </summary> 
@@ -151,7 +151,7 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _billingDetails As billingDetails
+        Private _billingDetails As New billingDetails
         ''' <summary> 
         ''' These are the billing details for the request.
         ''' </summary> 
@@ -179,7 +179,7 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _recurring As trecurring
+        Private _recurring As String
         ''' <summary> 
         ''' This indicates whether this is an initial or repeat transaction for a customer for whom you will be processing recurring transactions. 
         ''' The Recurring Indicator is used to identify transactions that are eligible for repeat processing. The merchant should identity the initial
@@ -194,16 +194,16 @@ Namespace PaySafe.Payment
         ''' Paysafe recommends using the�storedCredential�object.
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [recurring] As trecurring
+        Public Property [recurring] As String
             Get
                 Return _recurring
             End Get
-            Set(value As trecurring)
+            Set(value As String)
                 _recurring = value
             End Set
         End Property
 
-        Private _storedCredential As storedCredential
+        Private _storedCredential As New storedCredential
         ''' <summary> 
         ''' This object is used to identify requests that use stored credentials that the merchant has on file for the consumer, in order to improve authorization rates and reduce fraud.
         ''' Note:�You cannot include both the�recurring�parameter and the�storedCredential�object in the same authorization request. Paysafe recommends using the�storedCredential�object.
@@ -263,7 +263,7 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _merchantDescriptor As merchantDescriptor
+        Private _merchantDescriptor As New merchantDescriptor
         ''' <summary> 
         ''' This is the merchant descriptor that will be displayed on the customer's card statement.
         ''' Note:�Not all processing gateways support this parameter. Contact your account manager for more information.
@@ -271,7 +271,11 @@ Namespace PaySafe.Payment
         ''' <returns></returns> 
         Public Property [merchantDescriptor] As merchantDescriptor
             Get
-                Return _merchantDescriptor
+                If (_merchantDescriptor.dynamicDescriptor Is Nothing) And (_merchantDescriptor.phone Is Nothing) Then
+                    Return Nothing
+                Else
+                    Return _merchantDescriptor
+                End If
             End Get
             Set(value As merchantDescriptor)
                 _merchantDescriptor = value
@@ -309,17 +313,25 @@ Namespace PaySafe.Payment
         End Property
 
         Private _txnTime As Date
+        Private _txnTimeSet As Boolean = False
+
         ''' <summary> 
         ''' This is the date and time the request was processed. For example:
         ''' 2014-01-26T10:32:28Z
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [txnTime] As Date
+        Public Property [txnTime] As Date?
             Get
-                Return _txnTime
+                If Not (_txnTimeSet) Then
+                    Return Nothing
+                Else
+                    Return _txnTime
+                End If
+
             End Get
-            Set(value As Date)
+            Set(value As Date?)
                 _txnTime = value
+                _txnTimeSet = True
             End Set
         End Property
 
@@ -338,7 +350,7 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _avsResponse As tavsResponse
+        Private _avsResponse As String
         ''' <summary> 
         ''' This is the AVS response from the card issuer. Possible values are:
         ''' MATCH
@@ -349,11 +361,11 @@ Namespace PaySafe.Payment
         ''' UNKNOWN
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [avsResponse] As tavsResponse
+        Public Property [avsResponse] As String
             Get
                 Return _avsResponse
             End Get
-            Set(value As tavsResponse)
+            Set(value As String)
                 _avsResponse = value
             End Set
         End Property
@@ -390,7 +402,7 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _status As tauthStatus
+        Private _status As String
         ''' <summary> 
         ''' This is the status of the transaction request. Possible values are:
         ''' RECEIVED � Our system has received the request and is waiting for the downstream processor�s response.
@@ -400,11 +412,11 @@ Namespace PaySafe.Payment
         ''' CANCELLED � The request has been fully voided (reversed).
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [status] As tauthStatus
+        Public Property [status] As String
             Get
                 Return _status
             End Get
-            Set(value As tauthStatus)
+            Set(value As String)
                 _status = value
             End Set
         End Property

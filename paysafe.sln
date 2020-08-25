@@ -10,22 +10,23 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website", "website\", "{8A6FC546-5024-4BFD-978D-BEAEA3BBBA4B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{4d0246e0-52e4-49ec-ba75-84ca60998c3e}|paysafe.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_62269"
-		Debug.AspNetCompiler.PhysicalPath = "..\website\"
+		Debug.AspNetCompiler.PhysicalPath = "website\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62269\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_62269"
-		Release.AspNetCompiler.PhysicalPath = "..\website\"
+		Release.AspNetCompiler.PhysicalPath = "website\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62269\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "62269"
-		SlnRelativePath = "..\website\"
+		SlnRelativePath = "website\"
 	EndProjectSection
 EndProject
 Global

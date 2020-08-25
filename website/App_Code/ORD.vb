@@ -14,6 +14,15 @@ Public Class Order
     Public ZASH_TOKEN As String
     Public ORDERITEMS_SUBFORM As New List(Of SUBFORM)
 
+    Public ReadOnly Property value As Double
+        Get
+            Dim ret As Double = 0
+            For Each i As SUBFORM In ORDERITEMS_SUBFORM
+                ret += i.VPRICE
+            Next
+            Return ret
+        End Get
+    End Property
 End Class
 
 Public Class SUBFORM

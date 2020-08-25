@@ -2,7 +2,7 @@ Namespace PaySafe.Payment
 
     Public Class [storedCredential] : Implements IDisposable
 
-        Private _type As tcredentialType
+        Private _type As String
         ''' <summary> 
         ''' This specifies the type of request being made. Possible values are:
         ''' ADHOC � Ad hoc consumer-initiated request
@@ -12,16 +12,16 @@ Namespace PaySafe.Payment
         ''' Note:�This value defaults to�ADHOC.
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [type] As tcredentialType
+        Public Property [type] As String
             Get
                 Return _type
             End Get
-            Set(value As tcredentialType)
+            Set(value As String)
                 _type = value
             End Set
         End Property
 
-        Private _occurrence As toccurance
+        Private _occurrence As String
         ''' <summary> 
         ''' This specifies whether this stored credential request is initial or recurring. Possible values are:
         ''' INITIAL � Used when this is the first time the consumer uses this credit card
@@ -30,11 +30,11 @@ Namespace PaySafe.Payment
         ''' Note:�This value defaults to�INITIAL.
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [occurrence] As toccurance
+        Public Property [occurrence] As String
             Get
                 Return _occurrence
             End Get
-            Set(value As toccurance)
+            Set(value As String)
                 _occurrence = value
             End Set
         End Property

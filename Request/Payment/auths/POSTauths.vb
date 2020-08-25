@@ -31,7 +31,7 @@ Namespace PaySafe.Payment.Request.auths
 
         Public Overrides ReadOnly Property responseType As Type
             Get
-                Throw New NotImplementedException()
+                Return GetType(PaySafe.Payment.auths)
             End Get
 
         End Property
