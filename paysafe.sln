@@ -1,32 +1,30 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.106
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "paysafe", "paysafe.vbproj", "{4D0246E0-52E4-49EC-BA75-84CA60998C3E}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "psClient", "example\psClient.vbproj", "{CFDF74AE-2022-45BA-AF11-C1DA13F5B49D}"
-EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website", "website\", "{8A6FC546-5024-4BFD-978D-BEAEA3BBBA4B}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "wwwroot", "..\..\..\..\..\inetpub\wwwroot\", "{51D5DBA6-1FA3-46EE-A6E9-2D9DBB5D6CBF}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
 		ProjectReferences = "{4d0246e0-52e4-49ec-ba75-84ca60998c3e}|paysafe.dll;"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_62269"
-		Debug.AspNetCompiler.PhysicalPath = "website\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62269\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50151"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\inetpub\wwwroot\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50151\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_62269"
-		Release.AspNetCompiler.PhysicalPath = "website\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62269\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50151"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\inetpub\wwwroot\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50151\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "62269"
-		SlnRelativePath = "website\"
+		VWDPort = "50151"
+		SlnRelativePath = "..\..\..\..\..\inetpub\wwwroot\"
 	EndProjectSection
 EndProject
 Global
@@ -39,14 +37,10 @@ Global
 		{4D0246E0-52E4-49EC-BA75-84CA60998C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D0246E0-52E4-49EC-BA75-84CA60998C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D0246E0-52E4-49EC-BA75-84CA60998C3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CFDF74AE-2022-45BA-AF11-C1DA13F5B49D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFDF74AE-2022-45BA-AF11-C1DA13F5B49D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFDF74AE-2022-45BA-AF11-C1DA13F5B49D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFDF74AE-2022-45BA-AF11-C1DA13F5B49D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8A6FC546-5024-4BFD-978D-BEAEA3BBBA4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A6FC546-5024-4BFD-978D-BEAEA3BBBA4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A6FC546-5024-4BFD-978D-BEAEA3BBBA4B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A6FC546-5024-4BFD-978D-BEAEA3BBBA4B}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{51D5DBA6-1FA3-46EE-A6E9-2D9DBB5D6CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51D5DBA6-1FA3-46EE-A6E9-2D9DBB5D6CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51D5DBA6-1FA3-46EE-A6E9-2D9DBB5D6CBF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{51D5DBA6-1FA3-46EE-A6E9-2D9DBB5D6CBF}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

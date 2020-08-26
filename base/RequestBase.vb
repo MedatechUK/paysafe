@@ -42,6 +42,8 @@ Namespace PaySafe.Base
             Dim buffer(1024) As Byte
             Dim bytesRead As Integer
 
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+
             _Request = CType(HttpWebRequest.Create(String.Format("{0}{1}", Settings.baseUrl, String.Format(Me.uri, args))), Net.HttpWebRequest)
             With _Request
 
@@ -51,7 +53,8 @@ Namespace PaySafe.Base
                 .ContentType = "application/json"
                 .Headers.Add("Authorization", Settings.Auth)
 
-                Console.WriteLine("{0} {1}", Me.verb, String.Format("{0}{1}", Settings.baseUrl, String.Format(Me.uri, args)))
+
+                'RESPONSE.WRITE("{0} {1}", Me.verb, String.Format("{0}{1}", Settings.baseUrl, String.Format(Me.uri, args)))
 
                 Dim js = New JsonSerializerSettings()
                 js.NullValueHandling = NullValueHandling.Ignore
@@ -61,7 +64,7 @@ Namespace PaySafe.Base
                 Dim Request As MemoryStream = New MemoryStream(ASCIIEncoding.ASCII.GetBytes(rStr))
                 Try
                     If Not e Is Nothing Then
-                        Console.WriteLine(rStr)
+                        'RESPONSE.WRITE(rStr)
 
                         Using requestStream As Stream = .GetRequestStream()
                             With requestStream
@@ -90,7 +93,7 @@ Namespace PaySafe.Base
                 Catch ex As WebException
                     With ex
                         If TryCast(.Response, HttpWebResponse) Is Nothing Then
-                            r = New Exception(ex.Status.ToString)
+                            _result = New Exception(ex.Status.ToString)
 
                         Else
                             Using reader As New StreamReader(.Response.GetResponseStream)

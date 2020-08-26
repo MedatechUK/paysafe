@@ -31,7 +31,7 @@ Namespace PaySafe.Payment.Request.refund
 
         Public Overrides ReadOnly Property responseType As Type
             Get
-                Throw New NotImplementedException()
+                Return GetType(refunds)
             End Get
 
         End Property
