@@ -11,7 +11,10 @@ End Class
 
 Public Class Order
     Public ORDNAME As String
+    Public CODE As String
     Public ZASH_TOKEN As String
+    Public ZASH_MAGORDID As String
+    Public ZASH_ZIP As String
     Public ORDERITEMS_SUBFORM As New List(Of SUBFORM)
 
     Public ReadOnly Property value As Double
@@ -27,5 +30,6 @@ End Class
 
 Public Class SUBFORM
     Public VPRICE As Double
+    Public ORDI As Integer
 
 End Class

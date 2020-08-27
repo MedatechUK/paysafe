@@ -12,7 +12,10 @@ Partial Class _Default
 
     Private Sub form1_Load(sender As Object, e As EventArgs) Handles form1.Load
 
-        Using settings As New MedatechUK.PaySafe.Settings
+        Dim p As Boolean = False
+        Dim t As Boolean = False
+
+        Using settings As New MedatechUK.PaySafe.Settings(AddressOf hLog2)
             With settings
                 .APIUser = WebConfigurationManager.AppSettings("APIUser")
                 .APIkey = WebConfigurationManager.AppSettings("APIkey")
@@ -20,88 +23,160 @@ Partial Class _Default
 
             End With
 
-            Using l As New oData.Loading("PAY", AddressOf hLog)
-                Try
-                    Using o As New oClient("/ORDERS", "GET", "$select=ORDNAME,ZASH_TOKEN&$filter=ZASH_TOKEN Ne ''&$expand=ORDERITEMS_SUBFORM($filter=ZASH_PAYSAFEREADY eq 'Y';$select=VPRICE)")
+            Using tok As New oData.Loading("STA", AddressOf hLog2)
+                Using l As New oData.Loading("PAY", AddressOf hLog)
+                    Try
+                        Using o As New oClient(
+                            "/ORDERS",
+                            "GET",
+                            "$select=ZASH_MAGORDID,ORDNAME,ZASH_TOKEN,CODE,ZASH_ZIP&" &
+                            "$filter=ZASH_TOKEN Ne ''&$expand=ORDERITEMS_SUBFORM($filter=ZASH_PAYSAFEREADY eq 'Y';$select=VPRICE,ORDI)"
+                        )
+                            Dim resp = o.GetResponse()
+                            If resp.GetType = GetType(System.Net.HttpWebResponse) Then
+                                Dim ord As ORD
+                                With TryCast(resp, WebResponse)
+                                    Using sr As New StreamReader(.GetResponseStream)
+                                        ord = Json.JsonConvert.DeserializeObject(Of ORD)(sr.ReadToEnd)
+                                    End Using
+                                End With
 
-                        Dim resp = o.GetResponse()
-                        If resp.GetType = GetType(System.Net.HttpWebResponse) Then
-                            Dim ord As ORD
-                            With TryCast(resp, WebResponse)
-                                Using sr As New StreamReader(.GetResponseStream)
-                                    ord = Json.JsonConvert.DeserializeObject(Of ORD)(sr.ReadToEnd)
-                                End Using
-                            End With
+                                For Each ath As Order In ord.value
+                                    If ath.value > 0 Then
+                                        Try
+                                            Using a As New auths
+                                                With a
+                                                    .merchantRefNum = ath.ZASH_MAGORDID
+                                                    .settleWithAuth = True
+                                                    .card.paymentToken = ath.ZASH_TOKEN
+                                                    .dupCheck = False
+                                                    .currencyCode = ath.CODE
+                                                    .amount = ath.value * 100
 
-                            For Each ath As Order In ord.value
-                                If ath.value > 0 Then
-                                    Using a As New auths
-                                        With a
-                                            .merchantRefNum = ath.ORDNAME
-                                            .settleWithAuth = True
-                                            .card.paymentToken = ath.ZASH_TOKEN
-                                            .dupCheck = False
-                                            .currencyCode = Constant.ISO.tCurrency.GBP.ToString
-                                            .amount = ath.value * 100
+                                                    With .storedCredential
+                                                        .type = tcredentialType.RECURRING.ToString
+                                                        .occurrence = toccurance.SUBSEQUENT.ToString
 
-                                            With .storedCredential
-                                                .type = tcredentialType.RECURRING.ToString
-                                                .occurrence = toccurance.SUBSEQUENT.ToString
+                                                    End With
 
-                                            End With
+                                                    With .billingDetails
+                                                        .zip = ath.ZASH_ZIP
 
-                                            With .billingDetails
-                                                .zip = "BA22 8EX"
+                                                    End With
 
-                                            End With
+                                                    Using auth As New Payment.Request.auths.Create(settings, a, WebConfigurationManager.AppSettings("accountID"))
+                                                        With auth
+                                                            Select Case .Result.GetType()
+                                                                Case GetType(Exception)
+                                                                    Throw New Exception(TryCast(.Result, Exception).Message)
 
-                                            Using auth As New Payment.Request.auths.Create(settings, a, WebConfigurationManager.AppSettings("accountID"))
-                                                With auth
-                                                    Select Case .Result.GetType()
-                                                        Case GetType(ResponseErr)
-                                                            Throw New Exception(TryCast(.Result, ResponseErr).ToString)
+                                                                Case GetType(ResponseErr)
+                                                                    t = True
+                                                                    Select Case CInt(TryCast(.Result, ResponseErr).error.code)
+                                                                        Case 5502 ' Payment token is invalid                                                                            
+                                                                            With tok.AddRow(1)
+                                                                                .TEXT1 = ath.ORDNAME
+                                                                                .TEXT2 = "PAYLINKREQ"
+                                                                                .TEXT30 = System.Guid.NewGuid.ToString
+                                                                            End With
 
-                                                        Case GetType(Exception)
-                                                            Throw New Exception(TryCast(.Result, Exception).Message)
+                                                                            For Each i As SUBFORM In ath.ORDERITEMS_SUBFORM
+                                                                                With tok.AddRow(2)
+                                                                                    .INT1 = i.ORDI
+                                                                                    .TEXT20 = "N"
+                                                                                    .TEXT21 = "N"
+                                                                                End With
+                                                                            Next
 
-                                                        Case Else
-                                                            With l.AddRow(1)
-                                                                .TEXT29 = TryCast(auth.Result, PaySafe.Payment.auths).id
-                                                                .TEXT1 = TryCast(auth.Result, PaySafe.Payment.auths).merchantRefNum
-                                                                .TEXT2 = TryCast(auth.Result, PaySafe.Payment.auths).authCode
-                                                                .TEXT3 = TryCast(auth.Result, PaySafe.Payment.auths).status
-                                                                .TEXT30 = ""
+                                                                        Case Else
+                                                                            With tok.AddRow(1)
+                                                                                .TEXT1 = ath.ORDNAME
+                                                                                .TEXT2 = "ERROR"
+                                                                                .TEXT29 = TryCast(auth.Result, ResponseErr).ToString.Substring(0, 99)
+                                                                            End With
 
-                                                            End With
+                                                                            For Each i As SUBFORM In ath.ORDERITEMS_SUBFORM
+                                                                                With tok.AddRow(2)
+                                                                                    .INT1 = i.ORDI
+                                                                                    .TEXT20 = "N"
+                                                                                    .TEXT21 = "N"
+                                                                                End With
+                                                                            Next
 
-                                                    End Select
+                                                                    End Select
+
+                                                                Case Else
+                                                                    p = True
+                                                                    With l.AddRow(1)
+                                                                        .TEXT1 = ath.ORDNAME
+                                                                        .TEXT2 = "001"
+                                                                    End With
+
+                                                                    With l.AddRow(2)
+                                                                        .TEXT1 = "18"
+                                                                        .TEXT2 = TryCast(auth.Result, PaySafe.Payment.auths).merchantRefNum
+                                                                        .TEXT3 = TryCast(auth.Result, PaySafe.Payment.auths).authCode
+                                                                        .TEXT4 = TryCast(auth.Result, PaySafe.Payment.auths).status
+                                                                        .REAL1 = TryCast(auth.Result, PaySafe.Payment.auths).amount / 100
+                                                                        .INT1 = DateDiff(DateInterval.Minute, #01/01/1988#, Now())
+                                                                        .TEXT29 = TryCast(auth.Result, PaySafe.Payment.auths).id
+
+                                                                    End With
+
+                                                                    t = True
+                                                                    With tok.AddRow(1)
+                                                                        .TEXT1 = ath.ORDNAME
+                                                                        .TEXT2 = "PAYMENTRCVD"
+                                                                    End With
+
+                                                                    For Each i As SUBFORM In ath.ORDERITEMS_SUBFORM
+                                                                        With tok.AddRow(2)
+                                                                            .INT1 = i.ORDI
+                                                                            .TEXT20 = "N"
+                                                                            .TEXT21 = "Y"
+                                                                        End With
+                                                                    Next
+
+                                                            End Select
+
+                                                        End With
+
+                                                    End Using
 
                                                 End With
 
                                             End Using
 
-                                        End With
+                                        Catch exep As Exception
+                                            Response.Write(exep.Message & "<br/>")
 
-                                    End Using
+                                        End Try
+
+                                    End If
+
+                                Next
+
+                                If p Then
+                                    Dim EX As Exception = l.Post()
+                                    If Not EX Is Nothing Then Throw New Exception(EX.Message)
 
                                 End If
 
-                            Next
+                                If t Then
+                                    Dim EX As Exception = tok.Post()
+                                    If Not EX Is Nothing Then Throw New Exception(EX.Message)
+                                End If
 
-                            Dim EX As Exception = l.Post()
-                            If Not EX Is Nothing Then Throw New Exception(EX.Message)
+                            End If
 
-                        Else
-                            Throw New Exception(TryCast(resp, Exception).Message)
+                        End Using
 
-                        End If
+                    Catch ex As Exception
+                        Response.Write(ex.Message & "<br/>")
 
-                    End Using
+                    End Try
 
-                Catch ex As Exception
-                    Response.Write(ex.Message & "<br/>")
-
-                End Try
+                End Using
 
             End Using
 
@@ -109,8 +184,13 @@ Partial Class _Default
 
     End Sub
 
-    Private Sub hLog(sender As Object, e As oData.LogArgs)
-        Response.Write(e.Message & "<br/>")
+    Private Sub hLog(sender As Object, e As LogArgs)
+        HttpContext.Current.Response.Write(e.Message & "<br/>")
+
+    End Sub
+
+    Private Sub hLog2(sender As Object, e As LogArgs)
+        'HttpContext.Current.Response.Write(e.Message & "<br/>")
 
     End Sub
 

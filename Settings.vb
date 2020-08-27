@@ -4,6 +4,14 @@ Namespace PaySafe
 
     Public Class Settings : Implements IDisposable
 
+        Sub New(Optional ologHandler As EventHandler = Nothing)
+            _ologHandler = ologHandler
+            If Not _ologHandler Is Nothing Then
+                AddHandler LogModule.LogEvent, AddressOf EventLog
+
+            End If
+        End Sub
+
         Private _APIUser As String = ""
         Public Property APIUser As String
             Get
@@ -34,6 +42,12 @@ Namespace PaySafe
             End Set
         End Property
 
+        Private _ologHandler As EventHandler
+        Public Sub EventLog(sender As Object, e As LogArgs)
+            _ologHandler.Invoke(sender, e)
+
+        End Sub
+
         Public ReadOnly Property Auth As String
             Get
                 Return String.Format("Basic {0}",
@@ -53,11 +67,15 @@ Namespace PaySafe
 #Region "IDisposable Support"
         Private disposedValue As Boolean ' To detect redundant calls
 
-        ' IDisposable
         Protected Overridable Sub Dispose(disposing As Boolean)
             If Not disposedValue Then
                 If disposing Then
                     ' TODO: dispose managed state (managed objects).
+                    If Not _ologHandler Is Nothing Then
+                        RemoveHandler LogModule.LogEvent, AddressOf EventLog
+
+                    End If
+
                 End If
 
                 ' TODO: free unmanaged resources (unmanaged objects) and override Finalize() below.

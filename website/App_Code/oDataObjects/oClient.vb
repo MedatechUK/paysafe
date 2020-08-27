@@ -5,6 +5,7 @@ Imports System.Xml.Serialization
 Imports System.Web
 Imports System.Web.Configuration
 Imports Newtonsoft.Json
+Imports MedatechUK
 
 Namespace oData
 
@@ -111,7 +112,7 @@ Namespace oData
                     )
                     .Query = Query
 
-                    'Log(Me, "{0} {1}", Method.ToUpper, uri.ToString)
+                    Log(Me, "{0} {1}", Method.ToUpper, uri.ToString)
 
                     _Request = CType(Net.HttpWebRequest.Create(.Uri), Net.HttpWebRequest)
                     With _Request

@@ -2,6 +2,7 @@
 Imports System.Net
 Imports System.Reflection
 Imports Newtonsoft.Json
+Imports MedatechUK
 
 Namespace oData
 
@@ -547,7 +548,7 @@ Namespace oData
 
                     changes.Clear()
                     Exception = Nothing
-                    Log("{0}", "OK.")
+                    MedatechUK.Log("{0}", "OK.")
 
                     Return True
 

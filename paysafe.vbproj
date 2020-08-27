@@ -152,6 +152,7 @@
     <Compile Include="def\Const\paysafe\threeDEnrollment.vb" />
     <Compile Include="def\Const\paysafe\threeDResult.vb" />
     <Compile Include="def\Const\paysafe\verificationStatus.vb" />
+    <Compile Include="LogModule.vb" />
     <Compile Include="Request\Payment\auths\GETbyRef.vb" />
     <Compile Include="Request\Payment\auths\GETauths.vb" />
     <Compile Include="Request\Payment\auths\POSTauths.vb" />

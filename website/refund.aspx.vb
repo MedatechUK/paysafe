@@ -12,15 +12,16 @@ Partial Class _Default
 
     Private Sub form1_Load(sender As Object, e As EventArgs) Handles form1.Load
 
-        Using settings As New MedatechUK.PaySafe.Settings
-            With settings
+
+        Using Settings As New MedatechUK.PaySafe.Settings(AddressOf hLog)
+            With Settings
                 .APIUser = WebConfigurationManager.AppSettings("APIUser")
                 .APIkey = WebConfigurationManager.AppSettings("APIkey")
                 .baseUrl = WebConfigurationManager.AppSettings("baseUrl")
 
             End With
 
-            Using l As New oData.Loading("PAY", AddressOf hLog)
+            Using l As New oData.Loading("REF", AddressOf hLog)
                 Try
                     ' TODO: Feed of refunds
                     Using o As New oClient("/ORDERS", "GET", "$select=ORDNAME,ZASH_TOKEN&$filter=ZASH_TOKEN Ne ''&$expand=ORDERITEMS_SUBFORM($filter=ZASH_PAYSAFEREADY eq 'Y';$select=VPRICE)")
@@ -35,41 +36,47 @@ Partial Class _Default
                             End With
 
                             For Each r As Refund In ref.value
-                                Using a As New refunds
-                                    With a
-                                        .merchantRefNum = r.ORDNAME
-                                        .dupCheck = False
+                                Try
+                                    Using a As New refunds
+                                        With a
+                                            .merchantRefNum = r.ORDNAME
+                                            .dupCheck = False
 
-                                        ' Raise a refund against a token
-                                        Using refu As New refunds
-                                            Using refund As New Payment.Request.refund.Create(settings, r, WebConfigurationManager.AppSettings("accountID"), r.settlement_id)
-                                                With refund
-                                                    Select Case .Result.GetType()
-                                                        Case GetType(ResponseErr)
-                                                            Throw New Exception(TryCast(.Result, ResponseErr).ToString)
+                                            ' Raise a refund against a token
+                                            Using refu As New refunds
+                                                Using refund As New Payment.Request.refund.Create(Settings, a, WebConfigurationManager.AppSettings("accountID"), r.settlement_id)
+                                                    With refund
+                                                        Select Case .Result.GetType()
+                                                            Case GetType(ResponseErr)
+                                                                Throw New Exception(TryCast(.Result, ResponseErr).ToString)
 
-                                                        Case GetType(Exception)
-                                                            Throw New Exception(TryCast(.Result, Exception).Message)
+                                                            Case GetType(Exception)
+                                                                Throw New Exception(TryCast(.Result, Exception).Message)
 
-                                                        Case Else
-                                                            With l.AddRow(1)
-                                                                .TEXT29 = TryCast(refund.Result, refunds).id
-                                                                .TEXT1 = TryCast(refund.Result, refunds).merchantRefNum
-                                                                .TEXT3 = TryCast(refund.Result, refunds).status
-                                                                .TEXT30 = ""
+                                                            Case Else
+                                                                With l.AddRow(1)
+                                                                    .TEXT29 = TryCast(refund.Result, refunds).id
+                                                                    .TEXT1 = TryCast(refund.Result, refunds).merchantRefNum
+                                                                    .TEXT3 = TryCast(refund.Result, refunds).status
+                                                                    .TEXT30 = ""
 
-                                                            End With
+                                                                End With
 
-                                                    End Select
+                                                        End Select
 
-                                                End With
+                                                    End With
 
+                                                End Using
                                             End Using
-                                        End Using
 
-                                    End With
+                                        End With
 
-                                End Using
+                                    End Using
+
+                                Catch exep As Exception
+                                    Response.Write(exep.Message & "<br/>")
+
+                                End Try
 
                             Next
 
@@ -94,7 +101,7 @@ Partial Class _Default
 
     End Sub
 
-    Private Sub hLog(sender As Object, e As oData.LogArgs)
+    Private Sub hLog(sender As Object, e As LogArgs)
         Response.Write(e.Message & "<br/>")
 
     End Sub
