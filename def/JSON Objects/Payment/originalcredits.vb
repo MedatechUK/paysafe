@@ -62,7 +62,7 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _card As card
+        Private _card As New card
         ''' <summary> 
         ''' These are the details of the card used.
         ''' </summary> 
@@ -164,17 +164,17 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _txnTime As Date
+        Private _txnTime As Date?
         ''' <summary> 
         ''' This is the date and time the request was processed. For example:
         ''' 2014-01-26T10:32:28Z
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [txnTime] As Date
+        Public Property [txnTime] As Date?
             Get
                 Return _txnTime
             End Get
-            Set(value As Date)
+            Set(value As Date?)
                 _txnTime = value
             End Set
         End Property
@@ -208,7 +208,7 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _status As tocStatus
+        Private _status As tocStatus?
         ''' <summary> 
         ''' This is the status of the transaction request. Possible values are:
         ''' RECEIVED � Our system has received the request and is waiting for the downstream processor�s response.
@@ -218,11 +218,11 @@ Namespace PaySafe.Payment
         ''' CANCELLED � The request has been fully voided (reversed).
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [status] As tocStatus
+        Public Property [status] As tocStatus?
             Get
                 Return _status
             End Get
-            Set(value As tocStatus)
+            Set(value As tocStatus?)
                 _status = value
             End Set
         End Property

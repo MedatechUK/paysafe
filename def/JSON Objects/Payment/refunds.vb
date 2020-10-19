@@ -77,18 +77,25 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _txnTime As Date
+        Private _txnTimeSet As Boolean = False
+        Private _txnTime As Date?
         ''' <summary> 
         ''' This is the date and time the request was processed. For example:
         ''' 2014-01-26T10:32:28Z
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [txnTime] As Date
+        ''' 
+        Public Property [txnTime] As Date?
             Get
-                Return _txnTime
+                If Not _txnTimeSet Then
+                    Return Nothing
+                Else
+                    Return _txnTime
+                End If
             End Get
-            Set(value As Date)
+            Set(value As Date?)
                 _txnTime = value
+                _txnTimeSet = True
             End Set
         End Property
 
@@ -106,7 +113,7 @@ Namespace PaySafe.Payment
             End Set
         End Property
 
-        Private _status As trefundStatus
+        Private _status As String
         ''' <summary> 
         ''' This is the status of the transaction request. Possible values are:
         ''' RECEIVED � Our system has received the request and is waiting for the downstream processor�s response.
@@ -116,11 +123,11 @@ Namespace PaySafe.Payment
         ''' CANCELLED � The request has been fully voided (reversed).
         ''' </summary> 
         ''' <returns></returns> 
-        Public Property [status] As trefundStatus
+        Public Property [status] As String
             Get
                 Return _status
             End Get
-            Set(value As trefundStatus)
+            Set(value As String)
                 _status = value
             End Set
         End Property

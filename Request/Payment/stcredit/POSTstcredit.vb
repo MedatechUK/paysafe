@@ -31,7 +31,8 @@ Namespace PaySafe.Payment.Request.stcredit
 
         Public Overrides ReadOnly Property responseType As Type
             Get
-                Throw New NotImplementedException()
+                Return GetType(originalcredits)
+
             End Get
 
         End Property
